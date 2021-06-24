@@ -1,6 +1,5 @@
 const cityList = require('../models/cities.json');
 
-//add callback functions to the .create functions
 // if city is created...
 function seedCities() {
 	for (var i = 0; i < cityList.length; i++){
