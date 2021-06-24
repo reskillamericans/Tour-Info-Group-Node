@@ -1,26 +1,27 @@
-const countryList = require('../models/countries.json');
+const countryList = require('../seeders/countries.json');
+const Location = require('../models/location');
 
-function seedCountries() {
-	for (var i = 0; i < countryList.length; i++){
-		// conditions if location already exists
-		Location.findOne({countryList[i].name: req.body.name}, (err, existingLocation) => {
-			if (err) {
-				return res.status(500).json({err});
-			}
-			if (existingLocation) {
-				return res.status(400).json({message: "this location already exists."})
-			}
-		//create location 
-		Location.create({
-			name: countryList[i].name,
-			type: "country"
-		}, (err, createdCountry) => {
+
+exports.seedCountries = () => {
+	for (var i = 0; i < countryList; i++) {
+		// check if this country exists
+		Location.findOne({name: countryList[i].name}, (err, existingCountry) => {
 			if (err) throw err;
-			createdCountry.save((err, savedCountry) => {
-				if (err) throw err;
-				console.log("Country Saved!");
+			if (existingCountry) {
+				return "Location already exists";
+			}
+			// if country does not exist, create location
+			Location.create({
+				title: countryList[i].name,
+				type: "country"
+			}, (err, newCountry) => {
+				if (err) {
+					console.log(err);
+				}
+				if (newCountry) {
+					console.log(newCountry);
+				}
 			})
 		})
 	}
-	console.log('country seeded successfully');
 }

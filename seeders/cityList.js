@@ -1,34 +1,26 @@
-const cityList = require('../models/cities.json');
+const cityList = require('../seeders/cities.json');
+const Location = require('../models/location');
 
-// if city is created...
-function seedCities() {
-	for (var i = 0; i < cityList.length; i++){
-		// conditions if location already exists
-		Location.findOne({cityList[i].name: req.body.name}, (err, existingLocation) => {
+exports.seedCities = () => {
+	for (var i = 0; i < cityList.length; i++) {
+		// check if this city exists
+		Location.findOne({name: cityList[i].name}, (err, existingCity) => {
+			if (err) throw err;
+			if (existingCity) {
+				return "Location already exists";
+			}
+		// if city does not exist, create location
+		Location.create({
+			title: cityList[i].name,
+			type: "city"
+		}, (err, newCity) => {
 			if (err) {
-				return res.status(500).json({err});
+				console.log(err);
 			}
-			if (existingLocation) {
-				return res.status(400).json({message: "this location already exists."})
+			if (newCity) {
+				console.log(newCity);
 			}
-			// create Location
-			Location.create({
-				name: cityList[i].name,
-				type: "city"
-			}, (err, createdCity) => {
-				if (err) throw err;
-			}, createdCity.save((err, savedCity) => {
-				if (err) throw err;
-				console.log("City Saved!");
-			})
 		})
-		}
-		console.log('cities seeded successfully');
-	} 
-
-
-
-			// if city already exists
-
-			
-
+	})
+	}
+}
