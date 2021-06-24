@@ -19,6 +19,7 @@ exports.fetchLocations = (req, res) => {
 
 // fetches single location
 exports.fetchSingleLocation = (req, res) => {
+	// fetches location by _id value
 	Location.findOne({_id: req.params.id}, (err, location) => {
 		if (err) {
 			return res.status(500).json({message: err});
@@ -32,6 +33,7 @@ exports.fetchSingleLocation = (req, res) => {
 
 // update single location
 exports.updateSingleLocation = (req, res) => {
+	// fetches by _id value and the req.body
 	Location.findByIdAndUpdate(req.params.id, {
 		location: req.body.location,
 		title: req.body.title,
