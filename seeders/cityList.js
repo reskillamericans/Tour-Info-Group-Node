@@ -5,7 +5,7 @@ const cityList = require('../models/cities.json');
 function seedCities() {
 	for (var i = 0; i < cityList.length; i++){
 		// conditions if location already exists
-		Location.findOne({name: req.body.name}, (err, existingLocation) => {
+		Location.findOne({cityList[i].name: req.body.name}, (err, existingLocation) => {
 			if (err) {
 				return res.status(500).json({err});
 			}
