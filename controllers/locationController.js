@@ -3,10 +3,10 @@ const superagent = require('superagent');
 
 // fetches all locations
 exports.fetchLocations = (req, res) => {
-	// search for locations by category
+	// search for locations by type
 	let conditions = {};
-	if (req.query.category) {
-		conditions.category = req.query.category;
+	if (req.query.type) {
+		conditions.type = req.query.type;
 	}
 	Location.find(conditions, (err, locations) => {
 		if (err) {
@@ -36,9 +36,7 @@ exports.updateSingleLocation = (req, res) => {
 	// fetches by _id value and the req.body
 	Location.findByIdAndUpdate(req.params.id, {
 		location: req.body.location,
-		title: req.body.title,
-		comments: req.body.comments,
-		reviews: req.body.reviews
+		title: req.body.title
 	}, (err, location) => {
 		if (err) {
 			return res.status(500).json({message: err});
