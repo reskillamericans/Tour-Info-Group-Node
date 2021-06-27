@@ -35,8 +35,8 @@ exports.fetchSingleLocation = (req, res) => {
 exports.updateSingleLocation = (req, res) => {
 	// fetches by _id value and the req.body
 	Location.findByIdAndUpdate(req.params.id, {
-		location: req.body.location,
-		title: req.body.title
+		title: req.body.title,
+		type: req.body.type
 	}, (err, location) => {
 		if (err) {
 			return res.status(500).json({message: err});
