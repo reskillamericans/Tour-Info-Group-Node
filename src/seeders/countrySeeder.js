@@ -13,8 +13,10 @@ exports.seedCountries = () => {
 		if (err) {
 			console.log(err);
 		} else {
-			console.log("countries seeded");
-			return createdCountries;
+			createdCountries.save((err, savedCountries) => {
+				if (err) console.log(err);
+				console.log("countries seeded");
+			})
 		}
 	})
 

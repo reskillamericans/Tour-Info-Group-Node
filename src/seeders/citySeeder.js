@@ -16,8 +16,10 @@ exports.seedCities = () => {
 		if (err) {
 			console.log(err);
 		} else {
-			console.log("cities seeded");
-			console.log(createdCities);
+			createdCities.save((err, savedCities) => {
+				if (err) console.log(err);
+				console.log("cities seeded");
+			})
 		}
 	})
 }
