@@ -8,15 +8,19 @@ exports.seedCities = () => {
 			type: "city"
 		}
 	});
+	// check if city already exists
+	// Location.findOne({title: })
+
+	// if city has no duplicate then create the city
 	Location.create(...lists, (err, createdCities) => {
 		if (err) {
 			console.log(err);
 		} else {
-			console.log("seeded cities");
-			return createdCities;
+			console.log("cities seeded");
+			console.log(createdCities);
 		}
 	})
-
+}
 
 	// check locations for "type: city"
 	// if there are stop function
@@ -50,4 +54,3 @@ exports.seedCities = () => {
 	// 	})
 	// })
 	// }
-}

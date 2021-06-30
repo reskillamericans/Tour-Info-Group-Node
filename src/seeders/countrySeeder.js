@@ -8,16 +8,27 @@ exports.seedCountries = () => {
 			type: "country"
 		}
 	});
-	lists.forEach(country => {
-		Location.create(country, (err, createdCountry) => {
-			if (err) {
-				console.log(err);
-			} else {
-				console.log("seeded countries");
-				return createdCountry;
-			}
-		});
+	// if country has no duplicates then create the country
+	Location.create(...lists, (err, createdCountries) => {
+		if (err) {
+			console.log(err);
+		} else {
+			console.log("countries seeded");
+			return createdCountries;
+		}
 	})
+
+
+	// lists.forEach(country => {
+	// 	Location.create(country, (err, createdCountry) => {
+	// 		if (err) {
+	// 			console.log(err);
+	// 		} else {
+	// 			console.log("seeded countries");
+	// 			return createdCountry;
+	// 		}
+	// 	});
+	// })
 
 	// check for duplicates for countries and cities
 
