@@ -28,7 +28,12 @@ app.get('/', (req, res) => {
 });
 app.use(locationRoutes);
 
+//SEEDERS
+const {seedCities} = require('./seeders/citySeeder');
+const {seedCountries} = require('./seeders/countrySeeder');
 
+seedCities();
+seedCountries();
 
 //Server
 app.listen(port, () => {
