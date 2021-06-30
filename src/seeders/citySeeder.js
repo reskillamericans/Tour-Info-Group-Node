@@ -9,8 +9,10 @@ exports.seedCities = () => {
 		}
 	});
 	// check if city already exists
-	// Location.findOne({title: })
-
+	Location.findOne({"title": "city.name"}, (err, existingCity) => {
+		if (err) console.log(err);
+		if (existingCity) return "Location already exists";
+	});
 	// if city has no duplicate then create the city
 	Location.create(...lists, (err, createdCities) => {
 		if (err) {
@@ -23,36 +25,6 @@ exports.seedCities = () => {
 		}
 	})
 }
-
 	// check locations for "type: city"
 	// if there are stop function
 	// if none then create them
-
-
-	// for (var i = 0; i < cityList.length; i++) {
-	// 	// check if this city exists
-	// 	Location.findOne({name: cityList[i].name}, (err, existingCity) => {
-	// 		if (err) {
-	// 			console.log(err);
-	// 		}
-	// 		if (existingCity) {
-	// 			return "Location already exists";
-	// 		}
-	// 	// if city does not exist, create location
-	// 	console.log(cityList[i]);
-	// 	Location.create({
-	// 		title: cityList[i].name,
-	// 		type: "city"
-	// 	}, (err, newCity) => {
-	// 		if (err) {
-	// 			console.log(err);
-	// 		}
-	// 		if (newCity) {
-	// 			newCity.save((err, savedCity) => {
-	// 				if (err) console.log(err);
-	// 				return "Location saved";
-	// 			});
-	// 		}
-	// 	})
-	// })
-	// }
