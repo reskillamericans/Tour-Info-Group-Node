@@ -21,7 +21,11 @@ exports.fetchLocations = (req, res) => {
 // fetches single location
 exports.fetchSingleLocation = (req, res) => {
 	// fetches location by title value
-	Location.findOne({title: req.params.title}, (err, location) => {
+	Location.findOne({
+		title: req.params.title,
+		type: "city"
+	}, (err, location) => {
+		console.log(location);
 		if (err) {
 			return res.status(500).json({message: err});
 		} else if (!location) {

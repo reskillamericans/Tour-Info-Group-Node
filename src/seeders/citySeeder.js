@@ -2,16 +2,12 @@ const cityList = require('./cities.json');
 const Location = require('../models/location');
 
 exports.seedCities = () => {
-	const lists = cityList.map(city => {
+	// filter out duplicate cities
+	const lists = cityList.filter((city, index) => cityList.indexOf(city) === index).map(city => {
 		return {
 			title: city.name,
 			type: "city"
 		}
-	});
-	// check if city already exists
-	Location.findOne({"title": "city.name"}, (err, existingCity) => {
-		if (err) console.log(err);
-		if (existingCity) return "Location already exists";
 	});
 	// if city has no duplicate then create the city
 	Location.create(...lists, (err, createdCities) => {
@@ -25,6 +21,3 @@ exports.seedCities = () => {
 		}
 	})
 }
-	// check locations for "type: city"
-	// if there are stop function
-	// if none then create them
