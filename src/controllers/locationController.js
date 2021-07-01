@@ -20,8 +20,8 @@ exports.fetchLocations = (req, res) => {
 
 // fetches single location
 exports.fetchSingleLocation = (req, res) => {
-	// fetches location by _id value
-	Location.findOne({_id: req.params.id}, (err, location) => {
+	// fetches location by title value
+	Location.findOne({title: req.params.title}, (err, location) => {
 		if (err) {
 			return res.status(500).json({message: err});
 		} else if (!location) {
