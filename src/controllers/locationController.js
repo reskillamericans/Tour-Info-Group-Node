@@ -1,6 +1,4 @@
 const Location = require('../models/location');
-const superagent = require('superagent');
-
 
 // fetches all locations
 exports.fetchLocations = (req, res) => {
