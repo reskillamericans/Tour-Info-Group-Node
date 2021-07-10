@@ -19,4 +19,7 @@ const tourSchema = new Schema({
   	type: String,
   	enum: ['road', 'air', 'boat']
   }
-})
+});
+
+const Tour = mongoose.model('Tour', tourSchema);
+module.exports = Tour;
