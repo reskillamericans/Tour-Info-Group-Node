@@ -2,7 +2,8 @@ const Tour = require('../models/tours');
 
 exports.seedTours = () => {
 	Tour.create({
-		...req.body
+		//...req.body
+		title: String
 	}, (err, tour) => {
 		if (err) throw err;
 		tour.save((err, savedTour) => {

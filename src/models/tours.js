@@ -7,10 +7,14 @@ const tourSchema = new Schema({
 	images: String,
 	featureImage: String,
   notes: String,
-	location: {
-    type: Schema.Types.ObjectId,
-    ref: "Location"
-    },
+	city: {
+    type: String,
+    required: true
+  },
+  country: {
+    type: String,
+    required: true
+  },
   category: {
   	type: String,
   	enum: ['solo', 'group', 'private']
