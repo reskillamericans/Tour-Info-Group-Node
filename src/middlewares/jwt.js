@@ -3,6 +3,7 @@ ExtractJwt = require('passport-jwt').ExtractJwt;
 
 const User = require('../models/user');
 
+// creates a new extractor to look for the JWT in authorization header
 const opts = {
 	jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
 	secretOrKey: process.env.JWT_SECRET
