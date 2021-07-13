@@ -3,6 +3,7 @@ const express = require('express');
 const app = express();
 const port = process.env.PORT || 3000;
 const locationRoutes = require('./routes/locationRoutes');
+const nodemailer = require('./config/nodemailer');
 
 //Middleware
 app.use(express.json());
