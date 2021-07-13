@@ -3,7 +3,7 @@ const express = require('express');
 const app = express();
 const port = process.env.PORT || 3000;
 const locationRoutes = require('./routes/locationRoutes');
-const nodemailer = require('./config/nodemailer');
+const emailRoutes = require('./routes/emailRoutes');
 
 //Middleware
 app.use(express.json());
@@ -27,6 +27,7 @@ app.get('/', (req, res) => {
   res.send('Welcome to the Tour Info App');
 });
 app.use(locationRoutes);
+// app.use(emailRoutes);
 
 //SEEDERS
 const {seedCities} = require('./seeders/citySeeder');
