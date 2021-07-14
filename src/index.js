@@ -2,6 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const nodemailer = require('nodemailer');
 const locationRoutes = require('./routes/locationRoutes');
+const index = require('./routes/index');
 const emailRoutes = require('./routes/emailRoutes');
 const app = express();
 const port = process.env.PORT || 3000;
@@ -22,11 +23,12 @@ dbSetup();
 //==================================================
 
 //Placeholder routes for webpages
-app.get('/', (req, res) => {
-  res.send('Welcome to the Tour Info App');
-});
+// app.get('/', (req, res) => {
+//   res.send('Welcome to the Tour Info App');
+// });
 app.use(locationRoutes);
-
+// app.use(emailRoutes);
+app.use('/', index);
 //==================================================
 // Nodemailer
 //==================================================
