@@ -1,5 +1,5 @@
 const User = require('../models/user');
-const { sendEmail } = require('./passwordController');
+const { sendEmail } = require('./emailController');
 
 // @route GET admin/user
 // @desc Returns all users

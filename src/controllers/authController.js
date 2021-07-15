@@ -1,6 +1,6 @@
 const User = require('../models/user');
 const Token = require('../models/token');
-const {sendMail} = require('../controllers/emailController');
+const { sendMail } = require('../controllers/emailController');
 
 // @route POST api/auth/register
 // @desc Register user

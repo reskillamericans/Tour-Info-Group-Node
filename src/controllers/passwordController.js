@@ -1,5 +1,5 @@
 const User = require('../models/user');
-const { sendEmail } = require('./passwordController');
+const { sendEmail } = require('./emailController');
 
 // @route POST api/auth/recover
 // @desc Recover Password - Generates token and Sends password reset email

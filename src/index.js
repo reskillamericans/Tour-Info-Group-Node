@@ -6,6 +6,7 @@ const locationRoutes = require('./routes/locationRoutes');
 const emailRoutes = require('./routes/emailRoutes');
 const authRoutes = require('./routes/authRoutes');
 const passRoutes = require('./routes/passwordRoutes');
+const userRoutes = require('./routes/userRoutes');
 const app = express();
 const port = process.env.PORT || 3000;
 
@@ -28,6 +29,7 @@ app.use(locationRoutes);
 app.use(emailRoutes);
 app.use(authRoutes);
 app.use(passRoutes);
+app.use(userRoutes);
 
 //SEEDERS
 const {seedCities} = require('./seeders/citySeeder');
