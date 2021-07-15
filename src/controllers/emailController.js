@@ -14,7 +14,7 @@ const transporter = nodemailer.createTransport({
 exports.sendMail = (req, res) => {
 	const { to, subject, text } = req.body;
 	const mailData = {
-		from: 'rickmayatest@gmail.com',
+		from: process.env.SENDER_ADDRESS,
 		to: to,
 		subject: subject,
 		text: text
