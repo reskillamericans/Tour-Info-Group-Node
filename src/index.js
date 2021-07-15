@@ -1,9 +1,10 @@
 require('dotenv').config();
 const express = require('express');
 const nodemailer = require('nodemailer');
-const locationRoutes = require('./routes/locationRoutes');
 const index = require('./routes/index');
+const locationRoutes = require('./routes/locationRoutes');
 const emailRoutes = require('./routes/emailRoutes');
+const authRoutes = require('./routes/authRoutes');
 const app = express();
 const port = process.env.PORT || 3000;
 
@@ -21,10 +22,10 @@ dbSetup();
 //==================================================
 // Routes
 //==================================================
+app.use('/', index);
 app.use(locationRoutes);
 app.use(emailRoutes);
-app.use('/', index);
-
+app.use(authRoutes);
 
 //SEEDERS
 const {seedCities} = require('./seeders/citySeeder');

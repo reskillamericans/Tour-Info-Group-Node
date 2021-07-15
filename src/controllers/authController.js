@@ -89,7 +89,7 @@ exports.resendToken = async (req, res) => {
 	}
 };
 
-asyng function sendVerificationEmail(user, req, res) {
+async function sendVerificationEmail(user, req, res) {
 	try{
 		const token = user.generateVerificationToken();
 
