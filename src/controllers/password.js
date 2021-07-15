@@ -45,3 +45,33 @@ exports.reset = async (req, res) => {
 		res.status(500).json({message: error.message})
 	}
 };
+
+// @route POST api/auth/reset
+// @desc Reset Password
+// @access Public
+exports.resetPassword = async (req, res) => {
+	try {
+		const { token } = req.params;
+		const user = await User.findOne({resetPasswordToken: token, resetPasswordExpires: {$gt: Date.now()}});
+
+		if (!user) return res.status(401).json({message: 'Password reset token is invalid or has expired.'});
+
+		// Set the new password
+		user.password = req.body.password;
+		user.resetPasswordToken = undefined;
+		user.resetPasswordExpires = undefined;
+		user.isVerified = true;
+
+		// Save the updated user object
+		await user.save();
+
+		let subject = "Your password has been changed";
+		let to = user.email;
+		let from = process.env.SENDER_ADDRESS;
+
+		await sendEmail({to, from, subject});
+		res.status(200).json({message: 'Your password has been updated.'});
+	} catch (error) {
+		res.status(500).json({message: error.message})
+	}
+};
