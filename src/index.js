@@ -1,5 +1,7 @@
 require('dotenv').config();
 const express = require('express');
+const cors = require('cors');
+const passport = require('passport');
 const nodemailer = require('nodemailer');
 const index = require('./routes/index');
 const locationRoutes = require('./routes/locationRoutes');
@@ -10,9 +12,12 @@ const userRoutes = require('./routes/userRoutes');
 const app = express();
 const port = process.env.PORT || 3000;
 
-//Middleware
+//==================================================
+// MIDDLEWARE
+//==================================================
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(cors());
 
 //==================================================
 // DATABASE
@@ -22,23 +27,33 @@ const dbSetup = require('./database/setup');
 dbSetup();
 
 //==================================================
-// Routes
+// ROUTES
 //==================================================
-app.use('/', index);
+app.use(index);
 app.use(locationRoutes);
 app.use(emailRoutes);
 app.use(authRoutes);
 app.use(passRoutes);
 app.use(userRoutes);
 
-//SEEDERS
+//==================================================
+// INITIALIZE PASSPORT MIDDLEWARE
+//==================================================
+app.use(passport.initialize());
+require('./middlewares/jwt')(passport);
+
+//==================================================
+// SEEDERS
+//==================================================
 const {seedCities} = require('./seeders/citySeeder');
 const {seedCountries} = require('./seeders/countrySeeder');
 
 seedCities();
 seedCountries();
 
-//Server
+//==================================================
+// SERVER
+//==================================================
 app.listen(port, () => {
   console.log(`Server is listening on port: ${port}`)
 });
