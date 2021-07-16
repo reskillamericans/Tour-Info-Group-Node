@@ -13,20 +13,3 @@ module.exports = app => {
 	app.use('/api/auth', auth);
 	app.use('/api/user', authenticate, user);
 };
-
-
-
-
-
-
-
-
-// ===========================
-// 	Original Routes
-// ===========================
-
-// const indexController = require('../controllers/indexController');
-
-// app.get('/', indexController.getIndex);
-
-// module.exports = app;

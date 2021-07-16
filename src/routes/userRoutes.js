@@ -1,19 +1,27 @@
 const express = require('express');
 const router = express.Router();
-const UserCtrl = require('../controllers/userController');
+const { check } = require('express-validator');
+const User = require('../controllers/userController');
+const validate = require('../middlewares/validate');
 
-// GET route to /admin/user - returns all users
-router.get('/admin/user', UserCtrl.index);
+// INDEX
+router.get('/', User.index);
 
-// POST route to /user - adds a new user
-router.post('/user', UserCtrl.store);
+// STORE
+router.post('/', [
+	check('email').isEmail().withMessage('Enter a valid email address'),
+	check('username').not().isEmpty().withMessage('Your username is required'),
+	check('firstName').not().isEmpty().withMessage('Your first name is required'),
+	check('lastName').not().isEmpty().withMessage('Your last name is required'),
+], validate, User.store);
 
-// GET route to /user/{id} - returns a specific user
-router.get('/user/{id}', UserCtrl.show);
+// SHOW
+router.get('/:id', User.show);
 
-// PUT route to /user/{id} - update user detiails
-router.put('/user/{id}', UserCtrl.update);
+// UPDATE
+router.put('/id', User.update);
 
-// DELETE route to /user/{id} - delete user
-router.delete('/user/{id}', UserCtrl.destroy);
+// DELETE
+router.delete('/:id', User.destroy);
+
 module.exports = router;
