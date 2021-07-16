@@ -1,7 +1,7 @@
 const express = require('express');
 const { check } = require('express-validator');
-const AuthCtrl = require('../controllers/authController');
-const PassCtrl = require('../controllers/passwordController');
+const Auth = require('../controllers/authController');
+const Password = require('../controllers/passwordController');
 const validate = require('../middlewares/validate');
 const router = express.Router();
 
@@ -15,29 +15,29 @@ router.post('/register', [
 	check('password').not().isEmpty().isLength({min: 6}).withMessage('Must be at least 6 characters long'),
 	check('firstName').not().isEmpty().withMessage('Your first name is required'),
 	check('lastName').not().isEmpty().withMessage('Your last name is required')
-], validate, AuthCtrl.register);
+], validate, Auth.register);
 
 // POST request to '/login' to to validate email and password inputs during registration and login to then register user
 router.post('/login', [
 	check('email').isEmail().withMessage('Enter a valid email address'),
 	check('password').not().isEmpty(),
-], validate, AuthCtrl.login);
+], validate, Auth.login);
 
 // GET request to '/verify/:token' to verify email
-router.get('/verify/:token', AuthCtrl.verify);
+router.get('/verify/:token', Auth.verify);
 
 // POST request to '/recover' to reset the password
 router.post('/recover', [
 	check('email').isEmail().withMessage('Enter a valid email address'),
-], validate, PassCtrl.recover);
+], validate, Password.recover);
 
 // GET request to '/reset/:token' to obtain and validate the reset the token
-router.get('/reset/:token', PassCtrl.reset);
+router.get('/reset/:token', Password.reset);
 
 // POST request to '/reset/:token' to validate password requirements and set password
 router.post('/reset/:token', [
 	check('password').not().isEmpty().isLength({min: 6}).withMessage('Must be at least 6 chars long'),
 	check('confirmPassword', 'Passwords do not match').custom((value, {req}) => (value === req.body.password))
-], validate, PassCtrl.resetPassword);
+], validate, Password.resetPassword);
 
 module.exports = router;
