@@ -5,10 +5,10 @@ const User = require('../controllers/userController');
 const validate = require('../middlewares/validate');
 
 // INDEX
-router.get('/', User.index);
+router.get('/user', User.index);
 
 // STORE
-router.post('/', [
+router.post('/user', [
 	check('email').isEmail().withMessage('Enter a valid email address'),
 	check('username').not().isEmpty().withMessage('Your username is required'),
 	check('firstName').not().isEmpty().withMessage('Your first name is required'),
@@ -16,12 +16,12 @@ router.post('/', [
 ], validate, User.store);
 
 // SHOW
-router.get('/:id', User.show);
+router.get('/user/:id', User.show);
 
 // UPDATE
-router.put('/id', User.update);
+router.put('/user/id', User.update);
 
 // DELETE
-router.delete('/:id', User.destroy);
+router.delete('/user/:id', User.destroy);
 
 module.exports = router;

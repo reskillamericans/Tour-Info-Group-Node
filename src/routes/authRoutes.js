@@ -5,7 +5,7 @@ const Password = require('../controllers/passwordController');
 const validate = require('../middlewares/validate');
 const router = express.Router();
 
-router.get('/', (req, res) => {
+router.get('/auth', (req, res) => {
 	res.status(200).json({message: "You are in the Auth Endpoint. Register or Login to test Authentication."});
 });
 
