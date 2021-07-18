@@ -1,6 +1,6 @@
 const User = require('../models/user');
 const Token = require('../models/token');
-const { sendMail } = require('../controllers/emailController');
+const { sendMail } = require('./emailController');
 
 // @route POST api/auth/register
 // @desc Register user
@@ -90,18 +90,21 @@ exports.resendToken = async (req, res) => {
 };
 
 async function sendVerificationEmail(user, req, res) {
-	try{
+	try {
 		const token = user.generateVerificationToken();
 
 		// Save the verification token
 		await token.save();
 
+		// Verification mail data
 		let subject = "Account Verification Token";
 		let to = user.email;
+		console.log('This is the verification mail data: ' + to);
 		let from = process.env.FROM_EMAIL;
-		// change api
 		let link = "http://"+req.headers.host+"/api/auth/verify/"+token.token;
-		await sendEmail({to, from, subject, html});
+		let html = `<p>Hi ${user.username}<p><br><p>Please click on the following <a href="${link}">link</a> to verify your account.</p> 
+                  <br><p>If you did not request this, please ignore this email.</p>`;
+		await sendMail({to, from, subject, html});
 
 		res.status(200).json({message: 'A verification email has been sent to ' + user.email + '.'});
 	} catch (error) {

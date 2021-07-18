@@ -18,7 +18,6 @@ exports.store = async (req, res) => {
 
 		// Make sure this account doesn't already exist
 		const user = await User.findOne({email});
-
 		if (user) return res.status(401).json({message: 'The email address you have entered is already associated with another account. You can change this users role instead.'});
 
 		// generate a random password
@@ -32,6 +31,7 @@ exports.store = async (req, res) => {
 
 		// Save the updated user object
 		await user_.save();
+		console.log('This is the user object -> ' + user_);
 
 		// Get mail options
 		let domain = "http://" + req.headers.host;
@@ -39,11 +39,14 @@ exports.store = async (req, res) => {
 		let to = user.email;
 		let from = process.env.SENDER_ADDRESS;
 		let link = "http://" + req.headers.host + "/auth/reset/" + user.resetPasswordToken;
+		let html = `<p>Hi ${user.username}<p><br><p>A new account has been created for you on ${domain}. Please click on the following <a href="${link}">link</a> to set your password and login.</p> 
+                  <br><p>If you did not request this, please ignore this email.</p>`
 
 		await sendEmail({to, from, subject});
 
 		res.status(200).json({message: 'An email has been sent to ' + user.email + '.'});
 	} catch (error) {
+		console.log('this is the user error ' + error);
 		res.status(500).json({success: false, message: error.message})
 	}
 };

@@ -10,7 +10,7 @@ router.get('/auth', (req, res) => {
 });
 
 // POST request to '/register' to validate all inputs during registration and login to then register user
-router.post('/register', [
+router.post('/auth/register', [
 	check('email').isEmail().withMessage('Enter a valid email address'),
 	check('password').not().isEmpty().isLength({min: 6}).withMessage('Must be at least 6 characters long'),
 	check('firstName').not().isEmpty().withMessage('Your first name is required'),
@@ -18,24 +18,24 @@ router.post('/register', [
 ], validate, Auth.register);
 
 // POST request to '/login' to to validate email and password inputs during registration and login to then register user
-router.post('/login', [
+router.post('/auth/login', [
 	check('email').isEmail().withMessage('Enter a valid email address'),
 	check('password').not().isEmpty(),
 ], validate, Auth.login);
 
 // GET request to '/verify/:token' to verify email
-router.get('/verify/:token', Auth.verify);
+router.get('/auth/verify/:token', Auth.verify);
 
 // POST request to '/recover' to reset the password
-router.post('/recover', [
+router.post('/auth/recover', [
 	check('email').isEmail().withMessage('Enter a valid email address'),
 ], validate, Password.recover);
 
 // GET request to '/reset/:token' to obtain and validate the reset the token
-router.get('/reset/:token', Password.reset);
+router.get('/auth/reset/:token', Password.reset);
 
 // POST request to '/reset/:token' to validate password requirements and set password
-router.post('/reset/:token', [
+router.post('/auth/reset/:token', [
 	check('password').not().isEmpty().isLength({min: 6}).withMessage('Must be at least 6 chars long'),
 	check('confirmPassword', 'Passwords do not match').custom((value, {req}) => (value === req.body.password))
 ], validate, Password.resetPassword);
