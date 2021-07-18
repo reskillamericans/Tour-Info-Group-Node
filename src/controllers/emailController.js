@@ -12,12 +12,12 @@ const transporter = nodemailer.createTransport({
 
 
 exports.sendMail = (req, res) => {
-	const { to, subject, text } = req.body;
+	
 	const mailData = {
 		from: process.env.SENDER_ADDRESS,
-		to: to,
-		subject: subject,
-		text: text
+		to: req.body.to,
+		subject: req.body.subject,
+		text: req.body.text
 	};
 
 	transporter.sendMail(mailData, (error, info) => {

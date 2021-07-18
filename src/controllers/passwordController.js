@@ -1,5 +1,5 @@
 const User = require('../models/user');
-const { sendEmail } = require('./emailController');
+const { sendMail } = require('./emailController');
 
 // @route POST api/auth/recover
 // @desc Recover Password - Generates token and Sends password reset email
@@ -23,7 +23,7 @@ exports.recover = async (req, res) => {
 		let from = process.env.SENDER_ADDRESS;
 		let link = "http://" + req.headers.host + "/auth/reset/" + user.resetPasswordToken;
 
-		await sendEmail({to,from, subject});
+		await sendMail({to,from, subject});
 
 		res.status(200).json({message: 'A reset email has been sent to ' + user.email + '.'});
 	} catch (error) {
@@ -69,7 +69,7 @@ exports.resetPassword = async (req, res) => {
 		let to = user.email;
 		let from = process.env.SENDER_ADDRESS;
 
-		await sendEmail({to, from, subject});
+		await sendMail({to, from, subject});
 		res.status(200).json({message: 'Your password has been updated.'});
 	} catch (error) {
 		res.status(500).json({message: error.message})
