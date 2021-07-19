@@ -1,6 +1,8 @@
 const User = require('../models/user');
 const Token = require('../models/token');
-const { sendMail } = require('./emailController');
+const bcrypt = require('bcrypt');
+const saltRounds = 10
+const { sendMail } = require('../services/emailService');
 
 // @route POST api/auth/register
 // @desc Register user
@@ -12,8 +14,9 @@ exports.register = async (req, res) => {
 		// Make sure this account doesn't already exist
 		const user = await User.findOne({ email });
 		if (user) return res.status(401).json({message: 'The email address you have entered is already associated with another account.'});
-
 		const newUser = new User({...req.body, role: "basic"});
+		let hashedVariable = bcrypt.hashSync(newUser.password, saltRounds);
+		newUser.password = hashedVariable;
 		const user_ = await newUser.save();
 		await sendVerificationEmail(user_, req, res);
 	} catch (error) {
@@ -99,11 +102,10 @@ async function sendVerificationEmail(user, req, res) {
 		// Verification mail data
 		let subject = "Account Verification Token";
 		let to = user.email;
-		console.log('This is the verification mail (to) data: ' + to);
 		let from = process.env.FROM_EMAIL;
-		let link = "http://"+req.headers.host+"/api/auth/verify/"+token.token;
+		let link = "http://"+req.headers.host+"/auth/verify/"+token.token;
 		let html = `<p>Hi ${user.username}<p><br><p>Please click on the following <a href="${link}">link</a> to verify your account.</p> 
-                  <br><p>If you did not request this, please ignore this email.</p>`;
+		<br><p>If you did not request this, please ignore this email.</p>`;
 		await sendMail({to, from, subject, html});
 
 		res.status(200).json({message: 'A verification email has been sent to ' + user.email + '.'});

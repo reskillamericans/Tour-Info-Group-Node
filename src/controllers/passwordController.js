@@ -22,6 +22,7 @@ exports.recover = async (req, res) => {
 		let to = user.email;
 		let from = process.env.SENDER_ADDRESS;
 		let link = "http://" + req.headers.host + "/auth/reset/" + user.resetPasswordToken;
+		let html = //check the guide for html
 
 		await sendMail({to,from, subject});
 

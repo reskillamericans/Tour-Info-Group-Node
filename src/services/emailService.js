@@ -17,7 +17,7 @@ exports.sendMail = (mailOptions={}) => {
 		from: process.env.SENDER_ADDRESS,
 		to: mailOptions.to,
 		subject: mailOptions.subject,
-		text: mailOptions.text
+		html: mailOptions.html
 	};
 
 	transporter.sendMail(mailData, (error, info) => {
