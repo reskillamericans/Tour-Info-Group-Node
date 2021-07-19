@@ -30,9 +30,11 @@ app.use(locationRoutes);
 //SEEDERS
 const {seedCities} = require('./seeders/citySeeder');
 const {seedCountries} = require('./seeders/countrySeeder');
+const {seedTours} = require('./seeders/tourSeeder');
 
 seedCities();
 seedCountries();
+seedTours();
 
 //Server
 app.listen(port, () => {

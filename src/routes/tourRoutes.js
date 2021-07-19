@@ -7,6 +7,6 @@ router.get('/tours', TourCtrl.fetchTours);
 // GET request to /Fetch single tour
 router.get('/tours/:id', TourCtrl.fetchSingleTour);
 // POST request to book a new tour
-router.put('/tours', TourCtrl.bookTour);
+router.post('/tours', TourCtrl.bookTour);
 
 module.exports = router;

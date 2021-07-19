@@ -1,14 +1,22 @@
 const Tour = require('../models/tours');
 
+
 exports.seedTours = () => {
 	Tour.create({
-		//...req.body
-		title: String
+		title: req.body.title,
+		descriptions: req.body.descriptions,
+		images: req.body.images,
+		featureImage: req.body.featureImage,
+		notes: req.body.notes,
+		city: req.body.city,
+		country: req.body.country,
+		category: req.body.category,
+		travelType: req.body.travelType
 	}, (err, tour) => {
 		if (err) throw err;
 		tour.save((err, savedTour) => {
 			if (err) throw err;
-			return "Thank you! You're tour info has been saved"
+			console.log("tours seeded");
 		})
 	})
 }

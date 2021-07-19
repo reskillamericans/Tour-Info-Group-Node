@@ -26,9 +26,11 @@ exports.fetchSingleTour = (req, res) => {
 	})
 }
 
-// book a tour
+// @route POST api/user
+// @desc Add a new tour
+// @access Public
 exports.bookTour = (req, res) => {
-	Tour.create({
-		
-	})
+	try {
+		///try to follow what I did for the store function in the user controller from the feature/auth branch
+	}
 }
