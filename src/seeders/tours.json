@@ -1,0 +1,13 @@
+[
+  {
+    "title": "Mexico's Capital",
+    "descriptions": "The capital of Mexico",
+    "images": ["String", "String", "String"],
+    "featureImage": "String",
+    "notes":"Fantastic food!!!",
+    "city": "Mexico City",
+    "country": "Mexico",
+    "category": "solo",
+    "travelType": "road"
+  }
+];

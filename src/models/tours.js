@@ -4,16 +4,14 @@ const { Schema } = mongoose;
 const tourSchema = new Schema({
 	title: String,
 	descriptions: String,
-	images: String,
+	images: [String],
 	featureImage: String,
   notes: String,
 	city: {
-    type: String,
-    required: true
+    type: String
   },
   country: {
-    type: String,
-    required: true
+    type: String
   },
   category: {
   	type: String,
