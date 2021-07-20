@@ -9,5 +9,214 @@
     "country": "Mexico",
     "category": "solo",
     "travelType": "road"
+  },
+  {
+    "title": "Checking out New York",
+    "descriptions": "Great place",
+    "images": ["String", "String", "String"],
+    "featureImage": "String",
+    "notes":"many sights to see!!",
+    "city": "New York",
+    "country": "USA",
+    "category": "group",
+    "travelType": "road"
+  },
+  {
+    "title": "Zion National Park",
+    "descriptions": "Wonderful place",
+    "images": ["String", "String", "String"],
+    "featureImage": "String",
+    "notes":"great views!",
+    "city": "Zion",
+    "country": "USA",
+    "category": "group",
+    "travelType": "road"
+  },
+  {
+    "title": "Colorodo Rockies",
+    "descriptions": "climbing the fourteeners",
+    "images": ["String", "String", "String"],
+    "featureImage": "String",
+    "notes":"beautiful place",
+    "city": "Colorodo Springs",
+    "country": "USA",
+    "category": "group",
+    "travelType": "road"
+  },
+  {
+    "title": "Vacation",
+    "descriptions": "My experience at a hotle resort",
+    "images": ["String", "String", "String"],
+    "featureImage": "String",
+    "notes":"great service!",
+    "city": "Punta Cana",
+    "country": "Dominican Republic",
+    "category": "private",
+    "travelType": "air"
+  },
+  {
+    "title": "Visiting Texas",
+    "descriptions": "Checking out Texas",
+    "images": ["String", "String", "String"],
+    "featureImage": "String",
+    "notes":"I don't like tex-mex",
+    "city": "Houston",
+    "country": "USA",
+    "category": "solo",
+    "travelType": "road"
+  },
+  {
+    "title": "Gambling in Vegas",
+    "descriptions": "Sin City",
+    "images": ["String", "String", "String"],
+    "featureImage": "String",
+    "notes":"very crowded",
+    "city": "Las Vegas",
+    "country": "USA",
+    "category": "group",
+    "travelType": "road"
+  },
+  {
+    "title": "Isolation",
+    "descriptions": "getting away from the world",
+    "images": ["String", "String", "String"],
+    "featureImage": "String",
+    "notes":"Fantastic food!!!",
+    "city": "Souva",
+    "country": "Fiji",
+    "category": "solo",
+    "travelType": "boat"
+  },
+  {
+    "title": "Central America",
+    "descriptions": "Checking out mayan ruins",
+    "images": ["String", "String", "String"],
+    "featureImage": "String",
+    "notes":"Fantastic food!!!",
+    "city": "La Libertad",
+    "country": "El Salvador",
+    "category": "solo",
+    "travelType": "air"
+  },
+  {
+    "title": "More ancestral ruins",
+    "descriptions": "checking out Guatemala",
+    "images": ["String", "String", "String"],
+    "featureImage": "String",
+    "notes":"Fantastic food!!!",
+    "city": "Antigua",
+    "country": "Guatemala",
+    "category": "solo",
+    "travelType": "road"
+  },
+  {
+    "title": "Phillipino Food",
+    "descriptions": "PUTO",
+    "images": ["String", "String", "String"],
+    "featureImage": "String",
+    "notes":"Fantastic food!!!",
+    "city": "Manila",
+    "country": "Philippines",
+    "category": "solo",
+    "travelType": "boat"
+  },
+  {
+    "title": "West Coast",
+    "descriptions": "checking out LA",
+    "images": ["String", "String", "String"],
+    "featureImage": "String",
+    "notes":"Fantastic food!!!",
+    "city": "Los Angeles",
+    "country": "USA",
+    "category": "solo",
+    "travelType": "road"
+  },
+  {
+    "title": "North north America",
+    "descriptions": "The six",
+    "images": ["String", "String", "String"],
+    "featureImage": "String",
+    "notes":"Fantastic food!!!",
+    "city": "Toronto",
+    "country": "Canada",
+    "category": "solo",
+    "travelType": "road"
+  },
+  {
+    "title": "Tea and crumpits",
+    "descriptions": "Checking out england",
+    "images": ["String", "String", "String"],
+    "featureImage": "String",
+    "notes":"Fantastic food!!!",
+    "city": "London",
+    "country": "UK",
+    "category": "solo",
+    "travelType": "road"
+  },
+  {
+    "title": "brr it's cold",
+    "descriptions": "took a trip to alaska",
+    "images": ["String", "String", "String"],
+    "featureImage": "String",
+    "notes":"Fantastic food!!!",
+    "city": "Anchorage",
+    "country": "Alaska",
+    "category": "solo",
+    "travelType": "road"
+  },
+  {
+    "title": "too hot",
+    "descriptions": "checking out Pheonix",
+    "images": ["String", "String", "String"],
+    "featureImage": "String",
+    "notes":"Fantastic food!!!",
+    "city": "Arizona",
+    "country": "Pheonix",
+    "category": "solo",
+    "travelType": "road"
+  },
+  {
+    "title": "Top of the world",
+    "descriptions": "flew to Dubai",
+    "images": ["String", "String", "String"],
+    "featureImage": "String",
+    "notes":"Fantastic food!!!",
+    "city": "Dubai",
+    "country": "UAE",
+    "category": "solo",
+    "travelType": "road"
+  },
+  {
+    "title": "Windy City",
+    "descriptions": "went to a sox game",
+    "images": ["String", "String", "String"],
+    "featureImage": "String",
+    "notes":"Fantastic food!!!",
+    "city": "Chicago",
+    "country": "USA",
+    "category": "solo",
+    "travelType": "road"
+  },
+  {
+    "title": "Mountain climbing",
+    "descriptions": "flew to Switzerland",
+    "images": ["String", "String", "String"],
+    "featureImage": "String",
+    "notes":"Fantastic food!!!",
+    "city": "Zermatt",
+    "country": "Switzerland",
+    "category": "solo",
+    "travelType": "road"
+  },
+  {
+    "title": "Tropical vacay",
+    "descriptions": "going to Nicaragua",
+    "images": ["String", "String", "String"],
+    "featureImage": "String",
+    "notes":"Fantastic food!!!",
+    "city": "Managua",
+    "country": "Nicaragua",
+    "category": "solo",
+    "travelType": "road"
   }
-];
+]
