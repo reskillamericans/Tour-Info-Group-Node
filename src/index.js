@@ -9,9 +9,11 @@ const emailRoutes = require('./routes/emailRoutes');
 const authRoutes = require('./routes/authRoutes');
 const passRoutes = require('./routes/passwordRoutes');
 const userRoutes = require('./routes/userRoutes');
+const tourRoutes = require('./routes/tourRoutes');
 const app = express();
 const port = process.env.PORT || 3000;
 const path = require('path');
+
 //==================================================
 // MIDDLEWARE
 //==================================================
@@ -24,15 +26,14 @@ app.use(express.urlencoded({ extended: true }));
 //==================================================
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'ejs');
-// TODO: this is probably incorrect. have to refactor to be included in passwordController.js
 app.get(passRoutes, (req, res) => {
   res.render('reset');
 })
+
 //==================================================
 // DATABASE
 //==================================================
 const dbSetup = require('./database/setup');
-
 dbSetup();
 
 //==================================================
@@ -50,15 +51,18 @@ app.use(userRoutes);
 //==================================================
 app.use(passport.initialize());
 require('./middlewares/jwt')(passport);
+app.use(tourRoutes);
 
 //==================================================
 // SEEDERS
 //==================================================
 const {seedCities} = require('./seeders/citySeeder');
 const {seedCountries} = require('./seeders/countrySeeder');
+const {seedTours} = require('./seeders/tourSeeder');
 
 seedCities();
 seedCountries();
+seedTours();
 
 //==================================================
 // SERVER
