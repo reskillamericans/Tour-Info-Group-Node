@@ -12,6 +12,7 @@ exports.index = async function (req, res) {
 // @route POST api/user
 // @desc Add a new user
 // @access Public
+// TODO: abstract and reuse in authController
 exports.store = async (req, res) => {
 	try {
 		const { email } = req.body;
@@ -21,7 +22,7 @@ exports.store = async (req, res) => {
 		if (user) return res.status(401).json({message: 'The email address you have entered is already associated with another account. You can change this users role instead.'});
 
 		// generate a random password
-		const password = '_' + Math.random().toString(36).substr(2, 9); 
+		const password = '_' + Math.random().toString(36).substr(2, 9);
 		const newUser = new User({...req.body, password});
 
 		const user_ = await newUser.save();

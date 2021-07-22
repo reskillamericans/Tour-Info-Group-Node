@@ -31,28 +31,3 @@ exports.fetchSingleTour = (req, res) => {
 		}
 	})
 }
-
-// @route POST /tours
-// @desc Book a tour
-// @access Public
-exports.bookTour = (req, res) => {
-	//find location or tour
-	Tour.find(conditions, (err, tour) => {
-		if (err) {
-			return res.status(500).json({message: err});
-		} else {
-			return res.status(200).json(tour);
-			tour.save((err, savedLocation) => {
-				if (err) {
-					return res.status(400).json({message: err});
-				} else {
-					return res.status(200).json({message: "location updated successfully"})
-				}
-
-			//choose location or tour
-			//book (save) tour
-			//send confirmation email
-			})
-		}
-	})
-}
