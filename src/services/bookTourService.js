@@ -1,3 +1,5 @@
+const Booking = require('../models/booking');
+
 // create booking
 // set booking attributes
 // save booking
