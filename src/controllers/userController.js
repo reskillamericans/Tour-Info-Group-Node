@@ -31,7 +31,6 @@ exports.store = async (req, res) => {
 
 		// Save the updated user object
 		await user_.save();
-		console.log('This is the user object -> ' + user_);
 
 		// Get mail options
 		let domain = "http://" + req.headers.host;
@@ -46,7 +45,6 @@ exports.store = async (req, res) => {
 
 		res.status(200).json({message: 'An email has been sent to ' + user.email + '.'});
 	} catch (error) {
-		console.log('this is the user error ' + error);
 		res.status(500).json({success: false, message: error.message})
 	}
 };

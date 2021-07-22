@@ -11,7 +11,7 @@ const passRoutes = require('./routes/passwordRoutes');
 const userRoutes = require('./routes/userRoutes');
 const app = express();
 const port = process.env.PORT || 3000;
-
+const path = require('path');
 //==================================================
 // MIDDLEWARE
 //==================================================
@@ -19,6 +19,15 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+//==================================================
+// EJS
+//==================================================
+app.set('views', path.join(__dirname, 'views'))
+app.set('view engine', 'ejs');
+// TODO: this is probably incorrect. have to refactor to be included in passwordController.js
+app.get(passRoutes, (req, res) => {
+  res.render('reset');
+})
 //==================================================
 // DATABASE
 //==================================================

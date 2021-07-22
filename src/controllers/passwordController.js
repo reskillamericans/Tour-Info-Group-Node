@@ -1,5 +1,6 @@
 const User = require('../models/user');
-const { sendMail } = require('./emailController');
+const { sendMail } = require('../services/emailService');
+// TODO: incorrect. find way to render ejs file
 
 // @route POST api/auth/recover
 // @desc Recover Password - Generates token and Sends password reset email
@@ -22,9 +23,10 @@ exports.recover = async (req, res) => {
 		let to = user.email;
 		let from = process.env.SENDER_ADDRESS;
 		let link = "http://" + req.headers.host + "/auth/reset/" + user.resetPasswordToken;
-		let html = //check the guide for html
+		// TODO: incorrect. Must find way to render ejs file
+		let html = `<p>Please click this link to recover password: ${link}</p>`;
 
-		await sendMail({to,from, subject});
+		await sendMail({to,from, subject, html});
 
 		res.status(200).json({message: 'A reset email has been sent to ' + user.email + '.'});
 	} catch (error) {

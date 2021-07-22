@@ -20,6 +20,8 @@ exports.sendMail = (mailOptions={}) => {
 		html: mailOptions.html
 	};
 
+	console.log({mailOptions, mailData});
+
 	transporter.sendMail(mailData, (error, info) => {
 		if (error) {
 			return console.log(error);

@@ -14,10 +14,13 @@ exports.register = async (req, res) => {
 		// Make sure this account doesn't already exist
 		const user = await User.findOne({ email });
 		if (user) return res.status(401).json({message: 'The email address you have entered is already associated with another account.'});
+
+		// save newly created user
 		const newUser = new User({...req.body, role: "basic"});
 		let hashedVariable = bcrypt.hashSync(newUser.password, saltRounds);
 		newUser.password = hashedVariable;
 		const user_ = await newUser.save();
+
 		await sendVerificationEmail(user_, req, res);
 	} catch (error) {
 		res.status(500).json({success: false, message: error.message})
