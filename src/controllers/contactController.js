@@ -1,15 +1,15 @@
-const { sendMail } = require("./emailController");
+const { sendMail } = require("../services/emailService");
 
 exports.sendToAdmin = async (req, res) => {
   try {
     const to = process.env.ADMIN_ADDRESS;
     const subject = `Contact Us`;
-    const text = req.body.message;
+    const html = `<p>${req.body.message}</p>`;
 
-    sendMail({ to, subject, text });
+    sendMail({ to, subject, html });
 
     if (req.body.sendCopy === "true")
-      sendMail({ to: req.body.email, subject: "Copy of message sent to Touryst", text });
+      sendMail({ to: req.body.email, subject: "Copy of message sent to Touryst", html });
 
     return res.status(200).json({ message: "Email(s) sent." });
   } catch (err) {

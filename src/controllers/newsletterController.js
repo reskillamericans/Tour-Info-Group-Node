@@ -1,5 +1,5 @@
 const Newsletter = require("../models/newsletter");
-const { sendMail } = require("./emailController");
+const { sendMail } = require("../services/emailService");
 
 exports.subscribe = async (req, res) => {
   try {
@@ -14,9 +14,9 @@ exports.subscribe = async (req, res) => {
 
     const to = req.body.email;
     const subject = `Tour Info Newsletter`;
-    const text = `Thank you for subscribing to our newsletter!`;
+    const html = `<p>Thank you for subscribing to our newsletter!</p>`;
 
-    sendMail({ to, subject, text });
+    sendMail({ to, subject, html });
 
     return res.status(200).json({ message: "Subscribed to newsletter." });
   } catch (err) {
