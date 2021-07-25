@@ -2,7 +2,6 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const passport = require('passport');
-const nodemailer = require('nodemailer');
 const index = require('./routes/index');
 const locationRoutes = require('./routes/locationRoutes');
 const emailRoutes = require('./routes/emailRoutes');

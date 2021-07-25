@@ -1,5 +1,5 @@
 const User = require('../models/user');
-const { sendMail } = require('./emailController');
+const { sendMail } = require('../services/emailService');
 
 // @route GET admin/user
 // @desc Returns all users
@@ -42,7 +42,7 @@ exports.store = async (req, res) => {
 		let html = `<p>Hi ${user.username}<p><br><p>A new account has been created for you on ${domain}. Please click on the following <a href="${link}">link</a> to set your password and login.</p> 
                   <br><p>If you did not request this, please ignore this email.</p>`
 
-		await sendMail({to, from, subject});
+		await sendMail({to, from, subject, html});
 
 		res.status(200).json({message: 'An email has been sent to ' + user.email + '.'});
 	} catch (error) {
