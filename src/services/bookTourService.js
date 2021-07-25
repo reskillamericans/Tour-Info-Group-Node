@@ -1,4 +1,5 @@
 const Booking = require('../models/booking');
+const Tour = require('../models/tours');
 const { sendMail } = require('./emailService');
 
 exports.store = async (req, res) => {

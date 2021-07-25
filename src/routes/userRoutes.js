@@ -28,8 +28,7 @@ router.delete('/user/:id', User.destroy);
 // BOOK TOUR
 router.post('/user/:id/booking', [
 	check('username').not().isEmpty().withMessage('Your username is required'),
-	check('category').not().isEmpty().withMessage('Category is required'),
-	check('travelType').not().isEmpty().withMessage('Travel type is required'),
+	check('tour').not().isEmpty().withMessage('A tour is required'),
 
 ], validate, Booking.store)
 
