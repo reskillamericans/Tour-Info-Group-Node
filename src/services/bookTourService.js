@@ -20,8 +20,9 @@ async function sendConfirmationEmail(bookedTour, req, res) {
     let from = process.env.FROM_EMAIL;
     let html = `<p>Hi ${bookedTour.user.username}<p><br><p>Your tour to ${bookedTour.tour} is confirmed.</p>
 		<br><p>If you did not request this, please ignore this email.</p>`;
+
     await sendMail({to, from, subject, html});
-    res.status(200).json({message: 'An email has been sent to ' + bookedTour.user.email + '.'});
+    res.status(200).json({message: 'An email has been sent to ' + bookedTour.email + '.'});
   } catch (error) {
     res.status(500).json({message: error.message})
   }
