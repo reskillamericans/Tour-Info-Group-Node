@@ -30,6 +30,6 @@ router.put("/user/id", User.update);
 // DELETE
 router.delete("/user/:id", User.destroy);
 
-router.get("/user/profile", authenticate, profile);
+router.get("/user/profile", authenticate, User.profile);
 
 module.exports = router;
