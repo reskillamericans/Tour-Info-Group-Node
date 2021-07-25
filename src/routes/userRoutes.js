@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const { check } = require('express-validator');
 const User = require('../controllers/userController');
-const Booking = require('../services/bookTourService');
 const validate = require('../middlewares/validate');
 
 // INDEX
@@ -24,12 +23,5 @@ router.put('/user/id', User.update);
 
 // DELETE
 router.delete('/user/:id', User.destroy);
-
-// BOOK TOUR
-router.post('/user/:id/booking', [
-	check('username').not().isEmpty().withMessage('Your username is required'),
-	check('tour').not().isEmpty().withMessage('A tour is required'),
-
-], validate, Booking.store)
 
 module.exports = router;
