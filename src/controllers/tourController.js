@@ -1,5 +1,6 @@
 const Tour = require('../models/tours');
 const Booking = require('../models/booking');
+const User = require('../models/user');
 const { sendMail } = require('../services/emailService');
 
 // fetches all tours
@@ -49,6 +50,16 @@ exports.store = async (req, res) => {
 // TODO: abstract make DRY
 async function sendConfirmationEmail(bookedTour, req, res) {
 	try {
+		// Access user by id and set email variables
+		let mailData = User.findById(bookedTour.user, (err, user) => {
+			if (err) {
+				console.log(err);
+			} else {
+				let userEmail = user.email;
+				let userName = user.username;
+			}
+		});
+
 		// Confirmation mail data
 		let subject = "Tour Booking Confirmation";
 		let to = bookedTour.user.email;
