@@ -21,7 +21,5 @@ router.get('/user/:id', User.show);
 // UPDATE
 router.put('/user/id', User.update);
 
-// DELETE
-router.delete('/user/:id', User.destroy);
 
 module.exports = router;
