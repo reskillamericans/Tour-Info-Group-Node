@@ -2,7 +2,6 @@ require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const passport = require("passport");
-const nodemailer = require("nodemailer");
 const index = require("./routes/index");
 const locationRoutes = require("./routes/locationRoutes");
 const emailRoutes = require("./routes/emailRoutes");
@@ -10,10 +9,11 @@ const authRoutes = require("./routes/authRoutes");
 const passRoutes = require("./routes/passwordRoutes");
 const userRoutes = require("./routes/userRoutes");
 const newsletterRoutes = require("./routes/newsletterRoutes");
-const contactRoutes = require("./routes/contactRoutes");
+const tourRoutes = require("./routes/tourRoutes");
 const app = express();
 const port = process.env.PORT || 3000;
 const path = require("path");
+
 //==================================================
 // MIDDLEWARE
 //==================================================
@@ -60,9 +60,11 @@ require("./middlewares/jwt")(passport);
 //==================================================
 const { seedCities } = require("./seeders/citySeeder");
 const { seedCountries } = require("./seeders/countrySeeder");
+const { seedTours } = require("./seeders/tourSeeder");
 
-// seedCities();
-// seedCountries();
+seedCities();
+seedCountries();
+seedTours();
 
 //==================================================
 // SERVER

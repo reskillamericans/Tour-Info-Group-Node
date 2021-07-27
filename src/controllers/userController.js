@@ -1,5 +1,5 @@
 const User = require("../models/user");
-const { sendMail } = require("./emailController");
+const { sendMail } = require("../services/emailService");
 
 // @route GET admin/user
 // @desc Returns all users
@@ -12,6 +12,7 @@ exports.index = async function (req, res) {
 // @route POST api/user
 // @desc Add a new user
 // @access Public
+// TODO: abstract and reuse in authController
 exports.store = async (req, res) => {
   try {
     const { email } = req.body;
@@ -19,10 +20,12 @@ exports.store = async (req, res) => {
     // Make sure this account doesn't already exist
     const user = await User.findOne({ email });
     if (user)
-      return res.status(401).json({
-        message:
-          "The email address you have entered is already associated with another account. You can change this users role instead.",
-      });
+      return res
+        .status(401)
+        .json({
+          message:
+            "The email address you have entered is already associated with another account. You can change this users role instead.",
+        });
 
     // generate a random password
     const password = "_" + Math.random().toString(36).substr(2, 9);
@@ -45,7 +48,7 @@ exports.store = async (req, res) => {
     let html = `<p>Hi ${user.username}<p><br><p>A new account has been created for you on ${domain}. Please click on the following <a href="${link}">link</a> to set your password and login.</p> 
                   <br><p>If you did not request this, please ignore this email.</p>`;
 
-    await sendMail({ to, from, subject });
+    await sendMail({ to, from, subject, html });
 
     res.status(200).json({ message: "An email has been sent to " + user.email + "." });
   } catch (error) {
