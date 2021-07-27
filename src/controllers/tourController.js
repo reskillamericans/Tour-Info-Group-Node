@@ -51,24 +51,31 @@ exports.store = async (req, res) => {
 async function sendConfirmationEmail(bookedTour, req, res) {
 	try {
 		// Access user by id and set email variables
-		let mailData = User.findById(bookedTour.user, (err, user) => {
+		let userInfo = await User.findById(bookedTour.user, (err, user) => {
 			if (err) {
 				console.log(err);
 			} else {
-				let userEmail = user.email;
-				let userName = user.username;
+				console.log('Result : ', user)
+			}
+		});
+		// Access tour by id and set email variables
+		let tourInfo = await Tour.findById(bookedTour.tour, (err, tour) => {
+			if (err) {
+				console.log(err);
+			} else {
+				console.log('Result : ', tour)
 			}
 		});
 
 		// Confirmation mail data
 		let subject = "Tour Booking Confirmation";
-		let to = bookedTour.user.email;
+		let to = userInfo.email;
 		let from = process.env.FROM_EMAIL;
-		let html = `<p>Hi ${bookedTour.user.username}<p><br><p>Your tour to ${bookedTour.tour} is confirmed.</p>
+		let html = `<p>Hi ${userInfo.username}<p><br><p>Your tour to ${tourInfo.title} is confirmed.</p>
 		<br><p>If you did not request this, please ignore this email.</p>`;
 
 		await sendMail({to, from, subject, html});
-		res.status(200).json({message: 'An email has been sent to ' + bookedTour.user.email + '.'});
+		res.status(200).json({message: 'An email has been sent to ' + to + '.'});
 	} catch (error) {
 		res.status(500).json({message: error.message})
 	}
