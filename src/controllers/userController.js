@@ -1,5 +1,4 @@
 const User = require('../models/user');
-const { sendMail } = require('../services/emailService');
 
 // @route GET admin/user
 // @desc Returns all users
@@ -27,24 +26,9 @@ exports.store = async (req, res) => {
 
 		const user_ = await newUser.save();
 
-		// Generate and set password reset token
-		user_.generatePasswordReset();
-
 		// Save the updated user object
 		await user_.save();
 
-		// Get mail options
-		let domain = "http://" + req.headers.host;
-		let subject = "New Account Created";
-		let to = user.email;
-		let from = process.env.SENDER_ADDRESS;
-		let link = "http://" + req.headers.host + "/auth/reset/" + user.resetPasswordToken;
-		let html = `<p>Hi ${user.username}<p><br><p>A new account has been created for you on ${domain}. Please click on the following <a href="${link}">link</a> to set your password and login.</p> 
-                  <br><p>If you did not request this, please ignore this email.</p>`
-
-		await sendMail({to, from, subject, html});
-
-		res.status(200).json({message: 'An email has been sent to ' + user.email + '.'});
 	} catch (error) {
 		res.status(500).json({success: false, message: error.message})
 	}
