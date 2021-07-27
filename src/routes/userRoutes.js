@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const { check } = require("express-validator");
-const { authenticate } = require("passport");
+const authenticate = require("../middlewares/authenticate");
 const User = require("../controllers/userController");
 const validate = require("../middlewares/validate");
 
@@ -21,6 +21,9 @@ router.post(
   User.store
 );
 
+// USER PROFILE
+router.get("/user/profile", authenticate, User.profile);
+
 // SHOW
 router.get("/user/:id", User.show);
 
@@ -29,7 +32,5 @@ router.put("/user/id", User.update);
 
 // DELETE
 router.delete("/user/:id", User.destroy);
-
-router.get("/user/profile", authenticate, User.profile);
 
 module.exports = router;

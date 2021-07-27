@@ -20,12 +20,10 @@ exports.store = async (req, res) => {
     // Make sure this account doesn't already exist
     const user = await User.findOne({ email });
     if (user)
-      return res
-        .status(401)
-        .json({
-          message:
-            "The email address you have entered is already associated with another account. You can change this users role instead.",
-        });
+      return res.status(401).json({
+        message:
+          "The email address you have entered is already associated with another account. You can change this users role instead.",
+      });
 
     // generate a random password
     const password = "_" + Math.random().toString(36).substr(2, 9);
@@ -114,7 +112,7 @@ exports.profile = async (req, res) => {
   try {
     const profile = await User.findById({ _id: req.user.id }).populate("bookedTours");
     res.status(200).json({ profile });
-  } catch (err) {
+  } catch (error) {
     res.status(500).json({ message: error.message });
   }
 };

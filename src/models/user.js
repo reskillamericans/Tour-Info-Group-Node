@@ -58,10 +58,12 @@ const UserSchema = new Schema(
     toursTaken: {
       type: Number,
     },
-    toursBooked: {
-      type: Schema.Types.ObjectId,
-      ref: "Tour",
-    },
+    bookedTours: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Booking",
+      },
+    ],
   },
   { timestamps: true }
 );
