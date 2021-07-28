@@ -1,17 +1,18 @@
-require('dotenv').config();
-const express = require('express');
-const cors = require('cors');
-const passport = require('passport');
-const index = require('./routes/index');
-const locationRoutes = require('./routes/locationRoutes');
-const authRoutes = require('./routes/authRoutes');
-const passRoutes = require('./routes/passwordRoutes');
-const userRoutes = require('./routes/userRoutes');
+require("dotenv").config();
+const express = require("express");
+const cors = require("cors");
+const passport = require("passport");
+const index = require("./routes/index");
+const locationRoutes = require("./routes/locationRoutes");
+const authRoutes = require("./routes/authRoutes");
+const passRoutes = require("./routes/passwordRoutes");
+const userRoutes = require("./routes/userRoutes");
+const newsletterRoutes = require("./routes/newsletterRoutes");
+const contactRoutes = require("./routes/contactRoutes");
 const tourRoutes = require('./routes/tourRoutes');
 const app = express();
 const port = process.env.PORT || 3000;
-const path = require('path');
-
+const path = require("path");
 //==================================================
 // MIDDLEWARE
 //==================================================
@@ -27,7 +28,6 @@ app.set('view engine', 'ejs');
 app.get(passRoutes, (req, res) => {
   res.render('reset');
 })
-
 //==================================================
 // DATABASE
 //==================================================
@@ -42,20 +42,22 @@ app.use(locationRoutes);
 app.use(authRoutes);
 app.use(passRoutes);
 app.use(userRoutes);
+app.use(newsletterRoutes);
+app.use(contactRoutes);
+app.use(tourRoutes);
 
 //==================================================
 // INITIALIZE PASSPORT MIDDLEWARE
 //==================================================
 app.use(passport.initialize());
 require('./middlewares/jwt')(passport);
-app.use(tourRoutes);
 
 //==================================================
 // SEEDERS
 //==================================================
-const {seedCities} = require('./seeders/citySeeder');
-const {seedCountries} = require('./seeders/countrySeeder');
-const {seedTours} = require('./seeders/tourSeeder');
+const { seedCities } = require('./seeders/citySeeder');
+const { seedCountries } = require('./seeders/countrySeeder');
+const { seedTours } = require('./seeders/tourSeeder');
 
 seedCities();
 seedCountries();
@@ -65,5 +67,5 @@ seedTours();
 // SERVER
 //==================================================
 app.listen(port, () => {
-  console.log(`Server is listening on port: ${port}`)
+  console.log(`Server is listening on port: ${port}`);
 });
