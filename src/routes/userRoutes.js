@@ -1,8 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { check } = require('express-validator');
 const User = require('../controllers/userController');
-const validate = require('../middlewares/validate');
 
 // INDEX
 router.get('/user', User.index);
