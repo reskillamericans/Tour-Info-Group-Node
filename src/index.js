@@ -4,7 +4,6 @@ const cors = require('cors');
 const passport = require('passport');
 const index = require('./routes/index');
 const locationRoutes = require('./routes/locationRoutes');
-const emailRoutes = require('./routes/emailRoutes');
 const authRoutes = require('./routes/authRoutes');
 const passRoutes = require('./routes/passwordRoutes');
 const userRoutes = require('./routes/userRoutes');
@@ -40,7 +39,6 @@ dbSetup();
 //==================================================
 app.use(index);
 app.use(locationRoutes);
-app.use(emailRoutes);
 app.use(authRoutes);
 app.use(passRoutes);
 app.use(userRoutes);
