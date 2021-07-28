@@ -2,15 +2,14 @@ require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const passport = require("passport");
-const nodemailer = require("nodemailer");
 const index = require("./routes/index");
 const locationRoutes = require("./routes/locationRoutes");
-const emailRoutes = require("./routes/emailRoutes");
 const authRoutes = require("./routes/authRoutes");
 const passRoutes = require("./routes/passwordRoutes");
 const userRoutes = require("./routes/userRoutes");
 const newsletterRoutes = require("./routes/newsletterRoutes");
 const contactRoutes = require("./routes/contactRoutes");
+const tourRoutes = require('./routes/tourRoutes');
 const app = express();
 const port = process.env.PORT || 3000;
 const path = require("path");
@@ -24,17 +23,15 @@ app.use(express.urlencoded({ extended: true }));
 //==================================================
 // EJS
 //==================================================
-app.set("views", path.join(__dirname, "views"));
-app.set("view engine", "ejs");
-// TODO: this is probably incorrect. have to refactor to be included in passwordController.js
+app.set('views', path.join(__dirname, 'views'))
+app.set('view engine', 'ejs');
 app.get(passRoutes, (req, res) => {
-  res.render("reset");
-});
+  res.render('reset');
+})
 //==================================================
 // DATABASE
 //==================================================
-const dbSetup = require("./database/setup");
-
+const dbSetup = require('./database/setup');
 dbSetup();
 
 //==================================================
@@ -42,27 +39,29 @@ dbSetup();
 //==================================================
 app.use(index);
 app.use(locationRoutes);
-app.use(emailRoutes);
 app.use(authRoutes);
 app.use(passRoutes);
 app.use(userRoutes);
 app.use(newsletterRoutes);
 app.use(contactRoutes);
+app.use(tourRoutes);
 
 //==================================================
 // INITIALIZE PASSPORT MIDDLEWARE
 //==================================================
 app.use(passport.initialize());
-require("./middlewares/jwt")(passport);
+require('./middlewares/jwt')(passport);
 
 //==================================================
 // SEEDERS
 //==================================================
-const { seedCities } = require("./seeders/citySeeder");
-const { seedCountries } = require("./seeders/countrySeeder");
+const { seedCities } = require('./seeders/citySeeder');
+const { seedCountries } = require('./seeders/countrySeeder');
+const { seedTours } = require('./seeders/tourSeeder');
 
-// seedCities();
-// seedCountries();
+seedCities();
+seedCountries();
+seedTours();
 
 //==================================================
 // SERVER
