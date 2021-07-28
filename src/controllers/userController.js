@@ -110,7 +110,7 @@ exports.destroy = async function (req, res) {
 
 exports.profile = async (req, res) => {
   try {
-    const profile = await User.findById({ _id: req.user.id }).populate("bookedTours");
+    const profile = await User.findOne({ _id: req.user.id }).populate("bookedTours");
     res.status(200).json({ profile });
   } catch (error) {
     res.status(500).json({ message: error.message });
