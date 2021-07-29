@@ -1,4 +1,4 @@
-const Tour = require('../models/tours');
+const {TourModel} = require('../models/tours');
 const Booking = require('../models/booking');
 const User = require('../models/user');
 const { sendMail } = require('../services/emailService');
@@ -36,8 +36,38 @@ exports.fetchSingleTour = (req, res) => {
 }
 
 // book a tour
-exports.store = async (req, res) => {
+exports.bookTour = async (req, res) => {
 	// TODO: get user id from url
+    TourModel.findById(req.body.tour, (err, tour) => {
+        if (err) {
+            return res.status(404).json({ message: 'Tour not found' });
+        } else {
+            Booking.create({
+                user: req.user.id,
+                tour: tour._id,
+                category: req.body.category,
+                travelType: req.body.travelType
+            }, (err, newBooking) => {
+                if (err) {
+                    return res.status(500).json({ message: err });
+                } else {
+                    if (user.bookedTours) {
+                        user.bookedTours.push(newBooking.tour);
+                    } else {
+                        user.bookedTours = [newBooking.tour];
+                    }
+
+                    user.save((err, savedUser) => {
+                        if (err) {
+                            return res.status(500).json({ message: err });
+                        } else {
+                            return res.status(200).json({ message: 'Tour booked successfully!', user });
+                        }
+                    })
+                }
+            })
+        }
+    })
 	// instantiating new booking
 	const newBooking = new Booking({...req.body});
 	// saving new booking
