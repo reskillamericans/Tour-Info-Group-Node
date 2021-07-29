@@ -68,13 +68,7 @@ exports.bookTour = async (req, res) => {
             })
         }
     })
-	// instantiating new booking
-	const newBooking = new Booking({...req.body});
-	// saving new booking
-	const bookedTour = await newBooking.save();
-	console.log(bookedTour);
-	// send confirmation email
-	await sendConfirmationEmail(bookedTour, req, res);
+	
 }
 
 // TODO: abstract make DRY
