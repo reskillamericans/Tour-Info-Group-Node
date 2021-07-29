@@ -53,7 +53,8 @@ const UserSchema = new Schema({
 	resetPasswordExpires: {
 		type: Date,
 		required: false
-	}
+	},
+	bookedTours: [{ type: Schema.Types.ObjectId,ref: 'Tour'}],
 }, {timestamps: true});
 
 // compares the passwords
