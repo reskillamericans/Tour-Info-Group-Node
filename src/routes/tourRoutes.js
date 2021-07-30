@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const TourCtrl = require('../controllers/TourController');
+const TourCtrl = require('../controllers/tourController');
 const validate = require('../middlewares/validate');
 const { check } = require('express-validator');
 
@@ -15,6 +15,6 @@ router.post('/tours/:id/booking',[
   check('user').not().isEmpty().withMessage('A user is required'),
   check('tour').not().isEmpty().withMessage('A tour is required'),
 
-], validate, TourCtrl.store);
+], validate, TourCtrl.bookTour);
 
 module.exports = router;
