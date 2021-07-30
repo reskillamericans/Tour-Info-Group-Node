@@ -1,3 +1,4 @@
+const { populate } = require("../models/user");
 const User = require("../models/user");
 
 // @route GET admin/user
@@ -45,7 +46,10 @@ exports.update = async function (req, res) {
 
 exports.profile = async (req, res) => {
   try {
-    const profile = await User.findOne({ _id: req.user.id }).populate("bookedTours");
+    const profile = await User.findOne({ _id: req.user.id }).populate({
+      path: "bookedTours",
+      populate: { path: "tour" },
+    });
     res.status(200).json({ profile });
   } catch (error) {
     res.status(500).json({ message: error.message });
