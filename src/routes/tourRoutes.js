@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const TourCtrl = require('../controllers/tourController');
 const validate = require('../middlewares/validate');
+const authenticate = require('../middlewares/authenticate');
 const { check } = require('express-validator');
 
 
@@ -12,9 +13,7 @@ router.get('/tours', TourCtrl.fetchTours);
 router.get('/tours/:id', TourCtrl.fetchSingleTour);
 // POST request to /tours/:id/booking to book a tour
 router.post('/tours/:id/booking',[
-  check('user').not().isEmpty().withMessage('A user is required'),
   check('tour').not().isEmpty().withMessage('A tour is required'),
-
-], validate, TourCtrl.bookTour);
+], validate, authenticate, TourCtrl.bookTour);
 
 module.exports = router;

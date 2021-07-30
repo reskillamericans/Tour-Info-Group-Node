@@ -38,8 +38,14 @@ exports.fetchSingleTour = (req, res) => {
 // book a tour
 exports.bookTour = async (req, res) => {
 	try {
-		// get user id from url
-		let loggedInUser = await User.findById(req.params.id);
+		// Access user by id
+		let loggedInUser = await User.findById(req.user, (err, user) => {
+			if (err) {
+				console.log(err);
+			} else {
+				console.log('Result : ', user)
+			}
+		});
 
 		// search for existing tour by id, if no tour exists, create one with logged in user info.
 		Tour.findById(req.body.tour, (err, tour) => {
