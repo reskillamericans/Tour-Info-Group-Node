@@ -54,7 +54,7 @@ const UserSchema = new Schema({
 		type: Date,
 		required: false
 	},
-	bookedTours: [{ type: Schema.Types.ObjectId,ref: 'Tour'}],
+	bookedTours: [{ type: Schema.Types.ObjectId,ref: 'Booking'}],
 }, {timestamps: true});
 
 // compares the passwords
