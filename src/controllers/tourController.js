@@ -36,53 +36,38 @@ exports.fetchSingleTour = (req, res) => {
 };
 
 // book a tour
-exports.store = async (req, res) => {
-  // TODO: get user id from url
-  // instantiating new booking
-  const newBooking = new Booking({ ...req.body });
-  // saving new booking
-  const bookedTour = await newBooking.save();
+exports.bookTour = async (req, res) => {
+	try {
+		// Access user by id
+		let loggedInUser = await User.findById(req.user.id);
+		if(!loggedInUser){
+			console.log('User was not found');
+		}
 
-  // add new booking to user profile
-  const user = await User.findById({ _id: req.body.user });
-  user.bookedTours.push(bookedTour);
-  await user.save();
+		// Access tour by id and create new booking
+		let tour = await Tour.findById(req.body.tour);
+		if(!tour){
+			console.log('Tour was not found');
+		} else {
+			let newBooking = await Booking.create({
+				user: loggedInUser,
+				tour: tour,
+				category: req.body.category,
+				travelType: req.body.travelType
+			});
+			// push new booked tour into users 'bookedTours' array
+			loggedInUser.bookedTours.push(newBooking);
+			await loggedInUser.save()
 
-  console.log(bookedTour);
-  // send confirmation email
-  await sendConfirmationEmail(bookedTour, req, res);
-};
-
-// TODO: abstract make DRY
-async function sendConfirmationEmail(bookedTour, req, res) {
-  try {
-    // Access user by id and set email variables
-    let userInfo = await User.findById(bookedTour.user, (err, user) => {
-      if (err) {
-        console.log(err);
-      } else {
-        console.log("Result : ", user);
-      }
-    });
-    // Access tour by id and set email variables
-    let tourInfo = await Tour.findById(bookedTour.tour, (err, tour) => {
-      if (err) {
-        console.log(err);
-      } else {
-        console.log("Result : ", tour);
-      }
-    });
-
-    // Confirmation mail data
-    let subject = "Tour Booking Confirmation";
-    let to = userInfo.email;
-    let from = process.env.FROM_EMAIL;
-    let html = `<p>Hi ${userInfo.username}<p><br><p>Your tour to ${tourInfo.title} is confirmed.</p>
+			let subject = "Tour Booking Confirmation";
+			let to = loggedInUser.email;
+			let html = `<p>Hi ${loggedInUser.username}<p><br><p>Your tour to ${tour.title} is confirmed.</p>
 		<br><p>If you did not request this, please ignore this email.</p>`;
 
-    await sendMail({ to, from, subject, html });
-    res.status(200).json({ message: "An email has been sent to " + to + "." });
-  } catch (error) {
-    res.status(500).json({ message: error.message });
-  }
+			await sendMail({to, subject, html});
+			return res.status(200).json({message: 'Confirmation email sent'});
+		}
+	} catch (err) {
+		res.status(500).json({message: err.message});
+	}
 }
