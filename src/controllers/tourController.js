@@ -39,46 +39,27 @@ exports.fetchSingleTour = (req, res) => {
 exports.bookTour = async (req, res) => {
 	try {
 		// Access user by id
-		let loggedInUser = await User.findById(req.user, (err, user) => {
-			if (err) {
-				console.log(err);
-			} else {
-				console.log('Result : ', user)
-			}
-		});
+		let loggedInUser = await User.findById(req.user.id);
+		if(!loggedInUser){
+			console.log('User was not found');
+		}
 
-		// search for existing tour by id, if no tour exists, create one with logged in user info.
-		await Tour.findById(req.body.tour, (err, tour) => {
-			if (err) {
-				return res.status(404).json({message: 'Tour not found'});
-			} else {
-				Booking.create({
-					user: loggedInUser,
-					tour: tour,
-					category: req.body.category,
-					travelType: req.body.travelType
-				}, (err, newBooking) => {
-					if (err) {
-						return res.status(500).json({ message: err });
-					} else {
-						if (loggedInUser.Tours) {
-							loggedInUser.Tours.push(newBooking.tour);
-						} else {
-							loggedInUser.Tours = [newBooking.tour];
-
-							loggedInUser.save((err) => {
-								if (err) {
-									return res.status(500).json({ message: err });
-								} else {
-									sendConfirmationEmail(newBooking);
-									return res.status(200).json({ message: 'Tour booked successfully!', newBooking });
-								}
-							})
-						}
-					}
-				})
-			}
-		})
+		// Access tour by id and create new booking
+		let tour = await Tour.findById(req.body.tour);
+		if(!tour){
+			console.log('Tour was not found');
+		} else {
+			let newBooking = await Booking.create({
+				user: loggedInUser,
+				tour: tour,
+				category: req.body.category,
+				travelType: req.body.travelType
+			});
+			// push new booked tour into users 'bookedTours' array
+			loggedInUser.bookedTours.push(newBooking);
+			await loggedInUser.save()
+			await sendConfirmationEmail(newBooking);
+		}
 	} catch (err) {
 		res.status(500).json({message: err.message});
 	}
