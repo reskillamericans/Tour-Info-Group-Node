@@ -1,0 +1,416 @@
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,400;0,500;0,700;0,900;1,400;1,500;1,700;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --purple: #7307c8;
+    --white: #fff;
+    --black: #000;
+    --lightgray: rgb(219, 219, 219);
+    --darkgray: rgb(51, 49, 49);
+    --teal: #09CCC0;
+}
+
+body {
+  font-family: 'Red Hat Display', sans-serif;
+} 
+
+.menu {
+  display: flex;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+.menu img {
+  width: 60%;
+  padding: 0.9rem 0 0 0;
+}
+
+.menu a {
+  color: var(--mediumgray);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.menu ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+}
+
+.right li {
+  padding-left: 25px;
+}
+
+.right .purpbg {
+  background-color: var(--purple);
+  color: var(--white);
+  font-weight: bold;
+  padding: 2rem;
+}
+
+.right i {
+  color: var(--purple);
+}
+
+.signin > a:nth-child(1) {
+  color: var(--purple);
+}
+
+.far {
+  margin-right: 10px;
+}
+
+
+/*----------------------- BODY STYLING ------------------------------*/
+
+button {
+  background-color: var(--purple);
+  color: var(--white);
+  text-align: center;
+  margin: 20px 0;
+  padding: 10px 45px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.account {
+  margin-left: 515px;
+  margin-top: 60px;
+  margin-bottom: 70px;
+  font-size: 20px;
+}
+
+.middle-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-container {
+  width: 50%;
+  margin: 0 auto;
+  padding: 20px;
+  box-shadow: 0px 0px 20px #00000010;
+  background-color: white;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  /* width: 100%; */
+  margin-top: 20px;
+}
+
+.form-group label {
+  display: block;
+}
+
+.name{
+  display: inline-flex;
+  justify-content: space-between;
+  width: 90%;
+}
+
+#fname {
+  width: 100%;
+  background-color: rgb(243, 237, 237);
+  padding: 5px;
+  margin-top: 3px;
+  margin-right: 50px;
+  border: none;
+  border-radius: 3px;  
+  outline: none;  
+}
+
+#lname {
+  width: 123%;
+  background-color: rgb(243, 237, 237);
+  padding: 5px;
+  margin-top: 3px;
+  border: none;
+  border-radius: 3px;  
+  outline: none;
+}
+
+#address {
+  width: 98%;
+  background-color: rgb(243, 237, 237);
+  padding: 5px;
+  border: none;
+  border-radius: 3px;
+  margin-top: 3px;
+  outline: none;
+}
+
+.location {
+  display: inline-flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+
+#city {
+  width: 40%;
+  background-color: rgb(243, 237, 237);
+  padding: 5px 50px;
+  border: none;
+  border-radius: 3px;
+  margin-top: 3px;
+  margin-right: 7px;
+  outline: none;
+}
+
+#state {
+  width: 45%;
+  background-color: rgb(243, 237, 237);
+  padding: 5px;
+  border: none;
+  border-radius: 3px;
+  margin-top: 3px;
+  outline: none;
+}
+
+
+#zipcode {
+  width: 92%;
+  background-color: rgb(243, 237, 237);
+  padding: 5px;
+  border: none;
+  border-radius: 3px;
+  margin-top: 3px;
+  outline: none;
+}
+
+
+.num-bday-byear{
+  display: inline-flex;
+  justify-content: space-between;
+}
+
+
+#phone {
+  width: 100%;
+  background-color: rgb(243, 237, 237);
+  padding: 5px;
+  border: none;
+  border-radius: 3px;
+  margin-top: 3px;
+  outline: none;
+}
+
+.bdaymonth{
+  width: 30%;
+  margin-left: 60px;
+}
+#bdaymonth {
+  width: 60%;
+  background-color: rgb(243, 237, 237);
+  padding: 5px;
+  border: none;
+  border-radius: 3px;
+  margin-top: 3px;
+  outline: none;
+}
+
+#bdayyear{
+  width: 94%;
+  background-color: rgb(243, 237, 237);
+  padding: 5px;
+  border: none;
+  border-radius: 3px;
+  margin-top: 3px;
+  outline: none;
+}
+
+#email {
+  width: 98%;
+  background-color: rgb(243, 237, 237);
+  padding: 5px;
+  border: none;
+  border-radius: 3px;
+  margin-top: 3px;
+  outline: none;
+}
+
+#pssword {
+  width: 98%;
+  background-color: rgb(243, 237, 237);
+  padding: 5px;
+  border: none;
+  border-radius: 3px;
+  margin-top: 3px;
+  outline: none;
+}
+
+#username {
+  width: 98%;
+  background-color: rgb(243, 237, 237);
+  padding: 5px;
+  border: none;
+  border-radius: 3px;
+  margin-top: 3px;
+  outline: none;
+}
+
+.signup {
+  margin-left: 550px;
+  margin-top: 60px;
+  margin-bottom: 60px;
+}
+
+
+
+
+
+/*----------------------- SOCIAL AND NEWSLETTER SECTION START ------------------------------*/
+
+.prefooter {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-bottom: 0;
+  padding: 4rem;
+  background-color: var(--darkgray);
+}
+
+.prefooter ul {
+  list-style-type: none;
+}
+
+.prefooter a {
+  color: var(--white);
+  text-decoration: none;
+}
+
+.footerlinks {
+  color: var(--white);
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.socialmediaicons {
+  display: inline-flex;
+  color: var(--teal);
+}
+
+.socialmediaicons li {
+  margin: 1rem 1.25rem 0 0;
+}
+
+.newsletter h1 {
+  color: var(--white);
+}
+
+.newsletter input[type="email"] {
+  border: none;
+  width: 50%;
+  background: var(--white);
+  border-radius: 0.25rem;
+  margin: 0 1rem 0 0;
+  padding: 0.75rem 12rem 0.75rem 1rem;
+}
+
+/*----------------------- FOOTER START ------------------------------*/
+
+footer {
+  background-image: url("/assets/img/Main Top Image.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.footertxtcontainer {
+  background-color: #09ccbfb7;
+  height: inherit;
+}
+
+.footertxt {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 0;
+}
+
+.footertxt h2 {
+  color: var(--white);
+  margin-bottom: 1rem;
+}
+
+/*----------------------- RESPONSIVNESS ------------------------------*/
+
+@media only screen and (max-width: 40em) {
+  /*--- HEADER ---*/
+
+  header {
+    display: flex;
+    justify-content: center;
+  }
+
+  .menu {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .menu a {
+    font-size: 3vw;
+  }
+
+  .menu > a {
+    display: flex;
+    justify-content: center;
+  }
+
+  .menu img {
+    width: 60%;
+    padding: 1rem 0 1rem 0;
+  }
+
+.right {
+  font-size: 1rem;
+}
+
+  .right .purpbg {
+    padding: 2vh;
+  }
+
+  /*--- SOCIAL LINK AND NEWSLETTER ---*/
+
+  .prefooter {
+    overflow: hidden;
+    padding: 2rem;
+  }
+
+  .prefooter a {
+    font-size: 4vw;
+  }
+
+  .newsletter {
+    padding-left: 2vw;
+  }
+
+  .newsletter input[type="email"] {
+    padding: 0.75rem 5.5rem 0.75rem 1rem;
+    margin: 1rem 0 0 0;
+  }
+
+  /*--- FOOTER ---*/
+
+  .newsletter h1 {
+    font-size: 5.75vw;
+    text-align: left;
+  }
+
+  
+  .footertxt h2 {
+    font-size: 1.2rem;
+  }
+
+  }

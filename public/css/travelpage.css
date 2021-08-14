@@ -1,0 +1,237 @@
+@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,400;0,500;0,700;0,900;1,400;1,500;1,700;1,900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --purple: #7307c8;
+  --lightpurple: #e7cbef;
+  --white: #fff;
+  --black: #000;
+  --lightgray: rgb(245, 245, 245);
+  --mediumgray: #8a8a8a;
+  --darkgray: #333;
+  --teal: #09ccc0;
+}
+
+body {
+  font-family: "Red Hat Display", sans-serif;
+}
+
+h1 {
+  font-size: 37px;
+}
+
+h2 {
+  font-size: 28px;
+}
+
+h3 {
+  font-size: 19px;
+}
+
+h1,
+h2,
+h3 {
+  text-align: center;
+  color: var(--black);
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+   margin: 60px 0;
+  /* padding: 20px 0;  */
+}
+
+button {
+  background-color: var(--purple);
+  color: var(--white);
+  text-align: center;
+  margin: 20px 0;
+  padding: 10px 45px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+/*----------------------- MENU ------------------------------*/
+
+.menu {
+  display: flex;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+.menu img {
+  width: 60%;
+  padding: 0.9rem 0 0.9rem 0;
+}
+
+.menu a {
+  color: var(--mediumgray);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.menu ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+}
+
+.right li {
+  padding-left: 25px;
+}
+
+.right .purpbg {
+  background-color: var(--purple);
+  color: var(--white);
+  font-weight: bold;
+  padding: 3rem;
+}
+
+.right i {
+  color: var(--purple);
+}
+
+.signin > a:nth-child(1) {
+  color: var(--purple);
+}
+
+/* hr {
+    display: block;
+    unicode-bidi: isolate;
+    margin-block-start: 0.5em;
+    margin-block-end: 0.5em;
+    margin-inline-start: auto;
+    margin-inline-end: auto;
+    overflow: hidden;
+    border-style: inset;
+    border-width: 1px;
+} */
+
+/*----------------------- Middle ------------------------------*/
+.topimg{
+position: relative;
+  text-align: left;
+  color: white;
+}
+
+.topimg img{  
+    height: 400px;
+    width: 1200px;
+} 
+
+.topimg p {
+  position: absolute;
+  bottom: 100px;
+  left: 100px;  
+}
+
+.middle-preference{
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+}
+
+
+.middle-selection > button {
+    height: 30px; 
+    width: 100px;
+    padding: 0 0 20px;
+    border-radius: 5px;
+    background-color: var(--purple);
+    color:var(--white);
+    align-items: center;
+    justify-content: center; 
+}
+
+.middle-selection {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0 20px;
+    text-align: center;
+} 
+  
+.middle-selection > img {
+    width: 400px;
+  }
+  
+  .middle-selection > h3 {
+    margin: 1rem 0;
+    font-size: 18px;
+  }
+
+/*----------------------TRAVEL TYPE---------------------------*/
+
+.traveltype h2 {
+    margin-bottom: 3rem;
+  }
+  .top-preference {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  .top-selection {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin: 0 3rem;
+  }
+  
+  .top-selection > img {
+    width: 300px;
+  }
+  
+  .top-selection > h3 {
+    margin: 1rem 0;
+    font-size: 18px;
+  }
+  
+  .bottom-preference {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  .bottom-preference > button {
+    padding: 0.5rem 1rem;
+    margin: 0 0 0 1rem;
+    
+  }
+
+footer {
+    background-image: url("/assets/img/Main Top Image Mountain.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+  
+  .footertxtcontainer {
+    background-color: #09ccbfb7;
+    height: inherit;
+  }
+  
+  .footertxt {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 0;
+  }
+  
+  .footertxt h2 {
+    color: var(--white);
+    margin-bottom: 1rem;
+  }

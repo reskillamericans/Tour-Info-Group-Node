@@ -50,7 +50,8 @@ exports.profile = async (req, res) => {
       path: "bookedTours",
       populate: { path: "tour" },
     });
-    res.status(200).json({ profile });
+    // res.status(200).json({ profile });
+    res.status(200).render("profile", profile);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
