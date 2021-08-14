@@ -1,0 +1,200 @@
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,400;0,500;0,700;0,900;1,400;1,500;1,700;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --purple: #7307c8;
+    --white: #fff;
+    --black: #000;
+    --lightgray: rgb(219, 219, 219);
+    --darkgray: rgb(51, 49, 49);
+    --teal: #09CCC0;
+}
+
+body {
+  font-family: 'Red Hat Display', sans-serif;
+} 
+
+.menu {
+  display: flex;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+.menu img {
+  width: 60%;
+  padding: 0.9rem 0 0 0;
+}
+
+.menu a {
+  color: var(--mediumgray);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.menu ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+}
+
+.right li {
+  padding-left: 25px;
+}
+
+.right .purpbg {
+  background-color: var(--purple);
+  color: var(--white);
+  font-weight: bold;
+  padding: 2rem;
+}
+
+.right i {
+  color: var(--purple);
+}
+
+.signin > a:nth-child(1) {
+  color: var(--purple);
+}
+
+.far {
+  margin-right: 10px;
+}
+
+.upper-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-items: center;
+  text-align: center;
+  margin-top: 20px auto;
+}
+
+.confetti > img {
+  width: 200px;
+  margin-top: 20px;
+  margin-bottom: 10px;  
+}
+
+.mid-container {
+  margin-left: 140px; 
+  margin-top: 40px;
+}
+
+#contact {
+  text-decoration: none;
+  font-weight: bold;
+}
+
+button{
+  border-radius: 5px;
+  border: none;
+  width:150px;
+  padding: 8px;
+  background-color: var(--purple);
+  color: #fff;
+  text-align: center;
+  font-weight: bold;
+  font-size: 16px;
+  margin-top: 50px;
+  margin-left: 550px;
+}
+
+.prefooter {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-bottom: 0;
+  padding: 4rem; 
+  background-color: var(--darkgray);
+}
+
+.prefooter ul {
+  list-style-type: none;
+}
+
+.prefooter a {
+  color: var(--white);
+  text-decoration: none;
+}
+
+.footerlinks {
+  color: var(--white);
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.socialmediaicons {
+  display: inline-flex;
+  color: var(--teal);
+}
+
+.socialmediaicons li {
+  margin: 1rem 1.25rem 0 0;
+}
+
+.newsletter h1 {
+  color: var(--white);
+}
+
+.newsletter input[type="email"] {
+  border: none;
+  width: 50%;
+  background: var(--white);
+  border-radius: 0.25rem;
+  margin: 0 1rem 0 0;
+  padding: 0.75rem 12rem 0.75rem 1rem;
+}
+
+footer {
+  background-image: url(https://placeimg.com/1000/600/arch);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.footertxtcontainer {
+  background-color: #09ccbfb7;
+  height: inherit;
+}
+
+.footertxt {
+  display: flex;  
+  flex-direction:column;
+  align-items: center;
+  padding: 2rem 0;
+}
+
+
+
+/* footer {
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ padding: 2rem 0;
+ background-color: #09CCC0;
+ /* background-image: url("/assets/img/Main Top Image.png"); */
+ /* background-position: center;
+ background-repeat: no-repeat;
+ background-size: cover; 
+}*/
+
+
+/* Media Queries */
+
+@media only screen and (min-width:375px) and (max-width:812px) {
+  .mid-container{   
+    margin: 0;
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1.5em;
+  }
+}

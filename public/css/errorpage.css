@@ -1,0 +1,346 @@
+@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,400;0,500;0,700;0,900;1,400;1,500;1,700;1,900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --purple: #7307c8;
+  --lightpurple: #e7cbef;
+  --white: #fff;
+  --black: #000;
+  --lightgray: rgb(245, 245, 245);
+  --mediumgray: #8a8a8a;
+  --darkgray: #333;
+  --teal: #09ccc0;
+}
+
+body {
+  font-family: "Red Hat Display", sans-serif;
+}
+
+h1 {
+  font-size: 37px;
+}
+
+h2 {
+  font-size: 28px;
+}
+
+h3 {
+  font-size: 19px;
+}
+
+h1,
+h2,
+h3 {
+  text-align: center;
+  color: var(--black);
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 90px 0;
+  padding: 20px 0;
+}
+
+button {
+  background-color: var(--purple);
+  color: var(--white);
+  text-align: center;
+  margin: 20px 0;
+  padding: 10px 45px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+/*----------------------- MENU ------------------------------*/
+
+.menu {
+  display: flex;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+.menu img {
+  width: 60%;
+  padding: 0.9rem 0 0.9rem 0;
+}
+
+.menu a {
+  color: var(--mediumgray);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.menu ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+}
+
+.right li {
+  padding-left: 25px;
+}
+
+.right .purpbg {
+  background-color: var(--purple);
+  color: var(--white);
+  font-weight: bold;
+  padding: 3rem;
+}
+
+.right i {
+  color: var(--purple);
+}
+
+.signin > a:nth-child(1) {
+  color: var(--purple);
+}
+
+.far {
+  margin-right: 10px;
+}
+
+/* ---------------------middle Box----------------------------*/
+
+
+/*----------------------TRAVEL TYPE---------------------------*/
+
+.traveltype h2 {
+  margin-bottom: 3rem;
+}
+.top-preference {
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.top-selection {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin: 0 3rem;
+}
+
+.top-selection > img {
+  width: 300px;
+}
+
+.top-selection > h3 {
+  margin: 1rem 0;
+  font-size: 18px;
+}
+
+.bottom-preference {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.bottom-preference > button {
+  padding: 0.5rem 1rem;
+  margin: 0 0 0 1rem;
+}
+
+#topBtn {
+  position: fixed;
+  display: none;
+  bottom: 150px;
+  right: 170px;
+  z-index: 99;
+  margin: 0;
+  padding: 1rem;
+}
+
+/*----------------------- SOCIAL AND NEWSLETTER SECTION START ------------------------------*/
+
+.prefooter {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-bottom: 0;
+  padding: 4rem;
+  background-color: var(--darkgray);
+}
+
+.prefooter ul {
+  list-style-type: none;
+}
+
+.prefooter a {
+  color: var(--white);
+  text-decoration: none;
+}
+
+.footerlinks {
+  color: var(--white);
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.socialmediaicons {
+  display: inline-flex;
+  color: var(--teal);
+}
+
+.socialmediaicons li {
+  margin: 1rem 1.25rem 0 0;
+}
+
+.newsletter h1 {
+  color: var(--white);
+}
+
+.newsletter input[type="email"] {
+  border: none;
+  width: 50%;
+  background: var(--white);
+  border-radius: 0.25rem;
+  margin: 0 1rem 0 0;
+  padding: 0.75rem 12rem 0.75rem 1rem;
+}
+
+/*----------------------- FOOTER START ------------------------------*/
+
+footer {
+  background-image: url("/assets/img/Main Top Image Mountain.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.footertxtcontainer {
+  background-color: #09ccbfb7;
+  height: inherit;
+}
+
+.footertxt {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 0;
+}
+
+.footertxt h2 {
+  color: var(--white);
+  margin-bottom: 1rem;
+}
+
+/*----------------------- RESPONSIVE -----------------------------*/
+
+@media all and (min-width: 1024px) and (max-width: 1280px) {
+  .header {
+    background-color: aquamarine;
+  }
+}
+
+@media all and (min-width: 768px) and (max-width: 1024px) {
+  .header {
+    background-color: plum;
+  }
+}
+
+@media all and (min-width: 480px) and (max-width: 768px) {
+  .header {
+    background-color: yellowgreen;
+  }
+}
+
+@media all and (max-width: 480px) {
+  .header {
+    /* background-color: orangered; */
+  }
+
+  section {
+    margin: 10vh 5vw;
+  }
+
+  h1 {
+      font-size: 4.5vw;
+  }
+
+  h2 {
+      font-size: 3vw;
+  }
+
+  h3 {
+    font-size: 2.8vw;
+}
+
+  .menu {
+    flex-direction: column;
+  }
+
+  .menu a {
+    font-size: 8px;
+  }
+
+  .right .purpbg {
+    padding: 1rem;
+  }
+
+  .tritourscontainer {
+    flex-direction: column;
+  }
+
+  .toursimgframe {
+    width: 70vw;
+    height: 60vh;
+    margin-top: 3vh;
+  }
+
+  .tours {
+    width: auto;
+  }
+
+  .tours > p {
+    width: 65vw;
+    font-size: 3vw;
+}
+
+  .tritoursblurb p {
+      padding: 0 0;
+  }
+
+  .tour-container {
+      flex-direction: column;
+  }
+
+  .destination-left .item {
+    width: 88vw;
+  }
+
+  .destination-left h2 {
+    margin: 3rem 0 1rem 0;
+  }
+
+  .destination-right > img{
+    width: 88vw;
+  }
+
+  .destination-right h2 {
+    margin: 3rem 0 1rem 0;
+  }
+
+  .wblistcontainer {
+    flex-direction: column; 
+    margin: 1rem 0 2rem 0;
+  }
+
+  .wblistcontainer button {
+    width: 20rem;
+    height: 3rem;
+    cursor: default;
+  }
+
+}
