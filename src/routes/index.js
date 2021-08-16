@@ -11,4 +11,4 @@ router.get("/", (req, res) => {
 router.use("/api/auth", auth);
 router.use("/api/user", authenticate, user);
 
-module.exports = app;
+module.exports = router;
