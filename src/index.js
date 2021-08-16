@@ -1,7 +1,7 @@
 require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
-const passport = require("passport");
+// const passport = require("passport");
 const index = require("./routes/index");
 const locationRoutes = require("./routes/locationRoutes");
 const authRoutes = require("./routes/authRoutes");
@@ -13,6 +13,7 @@ const tourRoutes = require("./routes/tourRoutes");
 const app = express();
 const port = process.env.PORT || 3000;
 const path = require("path");
+const SECRET = process.env.SECRET;
 //==================================================
 // MIDDLEWARE
 //==================================================
@@ -50,8 +51,34 @@ app.use(tourRoutes);
 //==================================================
 // INITIALIZE PASSPORT MIDDLEWARE
 //==================================================
+// app.use(passport.initialize());
+// require("./middlewares/jwt")(passport);
+
+const User = require("./models/user");
+const passport = require("passport");
+const LocalStrategy = require("passport-local").Strategy;
+app.use(
+  require("express-session")({
+    secret: SECRET,
+    resave: false,
+    saveUninitialized: true,
+    expires: new Date(Date.now() + 30 * 80000 * 1000),
+    cookie: {
+      maxAge: 30 * 80000 * 1000,
+    },
+  })
+);
+app.use(function (req, res, next) {
+  res.locals.currentUser = req.user;
+  next();
+});
+
 app.use(passport.initialize());
-require("./middlewares/jwt")(passport);
+app.use(passport.session());
+passport.use(User.createStrategy());
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+passport.use("local", new LocalStrategy(User.authenticate()));
 
 //==================================================
 // SEEDERS
