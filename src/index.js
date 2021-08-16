@@ -37,18 +37,6 @@ const dbSetup = require("./database/setup");
 dbSetup();
 
 //==================================================
-// ROUTES
-//==================================================
-app.use(index);
-app.use(locationRoutes);
-app.use(authRoutes);
-app.use(passRoutes);
-app.use(userRoutes);
-app.use(newsletterRoutes);
-app.use(contactRoutes);
-app.use(tourRoutes);
-
-//==================================================
 // INITIALIZE PASSPORT MIDDLEWARE
 //==================================================
 // app.use(passport.initialize());
@@ -57,6 +45,8 @@ app.use(tourRoutes);
 const User = require("./models/user");
 const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
+const passportLocalMongoose = require("passport-local-mongoose");
+
 app.use(
   require("express-session")({
     secret: SECRET,
@@ -69,16 +59,28 @@ app.use(
   })
 );
 app.use(function (req, res, next) {
+  console.log(req.user);
   res.locals.currentUser = req.user;
   next();
 });
-
 app.use(passport.initialize());
 app.use(passport.session());
 passport.use(User.createStrategy());
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 passport.use("local", new LocalStrategy(User.authenticate()));
+
+//==================================================
+// ROUTES
+//==================================================
+app.use(index);
+app.use(locationRoutes);
+app.use(authRoutes);
+app.use(passRoutes);
+app.use(userRoutes);
+app.use(newsletterRoutes);
+app.use(contactRoutes);
+app.use(tourRoutes);
 
 //==================================================
 // SEEDERS

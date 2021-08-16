@@ -45,6 +45,8 @@ exports.update = async function (req, res) {
 
 exports.profile = async (req, res) => {
   try {
+    console.log("profile");
+    console.log(req.user);
     const profile = await User.findOne({ _id: req.user.id }).populate({
       path: "bookedTours",
       populate: { path: "tour" },
