@@ -5,17 +5,23 @@ const Password = require('../controllers/passwordController');
 const validate = require('../middlewares/validate');
 const router = express.Router();
 
-router.get('/auth', (req, res) => {
-	res.status(200).render('signup');
+// GET request to '/register' to show registration form
+router.get('/register', (req, res) => {
+	res.status(200).render('createaccount');
 });
 
 // POST request to '/register' to validate all inputs during registration and login to then register user
-router.post('/auth/register', [
+router.post('/register', [
 	check('email').isEmail().withMessage('Enter a valid email address'),
 	check('password').not().isEmpty().isLength({min: 6}).withMessage('Must be at least 6 characters long'),
 	check('firstName').not().isEmpty().withMessage('Your first name is required'),
 	check('lastName').not().isEmpty().withMessage('Your last name is required')
 ], validate, Auth.register);
+
+// GET request to '/auth/login to show login form
+router.get('/auth/login', (req, res) => {
+	res.status(200).render('signup')
+});
 
 // POST request to '/login' to to validate email and password inputs during registration and login to then register user
 router.post('/auth/login', [
