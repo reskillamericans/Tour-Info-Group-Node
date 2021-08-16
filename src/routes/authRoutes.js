@@ -1,6 +1,7 @@
 const express = require('express');
 const { check } = require('express-validator');
 const Auth = require('../controllers/authController');
+const Form = require('../controllers/loginFormController');
 const Password = require('../controllers/passwordController');
 const validate = require('../middlewares/validate');
 const router = express.Router();
@@ -14,9 +15,7 @@ router.post('/auth/register', [
 ], validate, Auth.register);
 
 // GET request to '/auth/login to show login form
-router.get('/auth/login', (req, res) => {
-	res.status(200).render('signup')
-});
+router.get('/auth/login', Form.getLoginPage);
 
 // POST request to '/login' to to validate email and password inputs during registration and login to then register user
 router.post('/auth/login', [
