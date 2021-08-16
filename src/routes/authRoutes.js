@@ -32,7 +32,9 @@ router.post('/auth/recover', [
 ], validate, Password.recover);
 
 // GET request to '/reset/:token' to obtain and validate the reset the token
-router.get('/auth/reset/:token', Password.reset);
+router.get('/auth/reset/:token', (req, res) => {
+	res.status(200).render("reset");
+}, Password.reset);
 
 // POST request to '/reset/:token' to validate password requirements and set password
 router.post('/auth/reset/:token', [

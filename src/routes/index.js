@@ -5,7 +5,7 @@ const user = require("./userRoutes");
 const authenticate = require("../middlewares/authenticate");
 
 router.get("/", (req, res) => {
-  res.status(200).send({ message: "Welcome to the AUTHENTICATION API. Register or Login to test Authentication." });
+  res.status(200).render('index');
 });
 
 router.use("/api/auth", auth);
