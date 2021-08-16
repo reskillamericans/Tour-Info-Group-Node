@@ -3,6 +3,7 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const crypto = require("crypto");
 const Token = require("./token");
+const passportLocalMongoose = require("passport-local-mongoose");
 const { Schema } = mongoose;
 
 const UserSchema = new Schema(
@@ -17,11 +18,6 @@ const UserSchema = new Schema(
       type: String,
       unique: true,
       required: "Your username is required",
-    },
-    password: {
-      type: String,
-      required: "Your password is required",
-      max: 100,
     },
     firstName: {
       type: String,
@@ -104,5 +100,7 @@ UserSchema.methods.generateVerificationToken = function () {
 
   return new Token(payload);
 };
+
+UserSchema.plugin(passportLocalMongoose);
 
 module.exports = mongoose.model("User", UserSchema);
