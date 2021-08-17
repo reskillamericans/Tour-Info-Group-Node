@@ -10,6 +10,8 @@ const userRoutes = require("./routes/userRoutes");
 const newsletterRoutes = require("./routes/newsletterRoutes");
 const contactRoutes = require("./routes/contactRoutes");
 const tourRoutes = require("./routes/tourRoutes");
+const aboutRoutes = require("./routes/aboutRoutes");
+
 const app = express();
 const port = process.env.PORT || 3000;
 const path = require("path");
@@ -81,6 +83,7 @@ app.use(userRoutes);
 app.use(newsletterRoutes);
 app.use(contactRoutes);
 app.use(tourRoutes);
+app.use(aboutRoutes);
 
 //==================================================
 // SEEDERS
