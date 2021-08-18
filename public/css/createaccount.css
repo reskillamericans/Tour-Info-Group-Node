@@ -1,22 +1,22 @@
-@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,400;0,500;0,700;0,900;1,400;1,500;1,700;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,400;0,500;0,700;0,900;1,400;1,500;1,700;1,900&display=swap");
 
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 :root {
-    --purple: #7307c8;
-    --white: #fff;
-    --black: #000;
-    --lightgray: rgb(219, 219, 219);
-    --darkgray: rgb(51, 49, 49);
-    --teal: #09CCC0;
+  --purple: #7307c8;
+  --white: #fff;
+  --black: #000;
+  --lightgray: rgb(219, 219, 219);
+  --darkgray: rgb(51, 49, 49);
+  --teal: #09ccc0;
 }
 
 body {
-  font-family: 'Red Hat Display', sans-serif;
-} 
+  font-family: "Red Hat Display", sans-serif;
+}
 
 .menu {
   display: flex;
@@ -66,7 +66,6 @@ body {
   margin-right: 10px;
 }
 
-
 /*----------------------- BODY STYLING ------------------------------*/
 
 button {
@@ -81,7 +80,7 @@ button {
 }
 
 .account {
-  margin-left: 515px;
+  /* margin-left: 515px; */
   margin-top: 60px;
   margin-bottom: 70px;
   font-size: 20px;
@@ -101,6 +100,7 @@ button {
   background-color: white;
   border-radius: 8px;
   margin-bottom: 20px;
+  max-width: 540px;
 }
 
 .form-group {
@@ -112,7 +112,7 @@ button {
   display: block;
 }
 
-.name{
+.name {
   display: inline-flex;
   justify-content: space-between;
   width: 90%;
@@ -125,8 +125,8 @@ button {
   margin-top: 3px;
   margin-right: 50px;
   border: none;
-  border-radius: 3px;  
-  outline: none;  
+  border-radius: 3px;
+  outline: none;
 }
 
 #lname {
@@ -135,7 +135,7 @@ button {
   padding: 5px;
   margin-top: 3px;
   border: none;
-  border-radius: 3px;  
+  border-radius: 3px;
   outline: none;
 }
 
@@ -154,7 +154,6 @@ button {
   justify-content: space-between;
   width: 100%;
 }
-
 
 #city {
   width: 40%;
@@ -177,7 +176,6 @@ button {
   outline: none;
 }
 
-
 #zipcode {
   width: 92%;
   background-color: rgb(243, 237, 237);
@@ -188,12 +186,10 @@ button {
   outline: none;
 }
 
-
-.num-bday-byear{
+.num-bday-byear {
   display: inline-flex;
   justify-content: space-between;
 }
-
 
 #phone {
   width: 100%;
@@ -205,7 +201,7 @@ button {
   outline: none;
 }
 
-.bdaymonth{
+.bdaymonth {
   width: 30%;
   margin-left: 60px;
 }
@@ -219,7 +215,7 @@ button {
   outline: none;
 }
 
-#bdayyear{
+#bdayyear {
   width: 94%;
   background-color: rgb(243, 237, 237);
   padding: 5px;
@@ -265,9 +261,21 @@ button {
   margin-bottom: 60px;
 }
 
+.input-button {
+  background-color: var(--purple);
+  color: var(--white);
+  text-align: center;
+  margin: 20px 0 20px 202.5px;
+  padding: 10px 45px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
 
-
-
+.center-text {
+  text-align: center;
+  width: 100%;
+}
 
 /*----------------------- SOCIAL AND NEWSLETTER SECTION START ------------------------------*/
 
@@ -373,9 +381,9 @@ footer {
     padding: 1rem 0 1rem 0;
   }
 
-.right {
-  font-size: 1rem;
-}
+  .right {
+    font-size: 1rem;
+  }
 
   .right .purpbg {
     padding: 2vh;
@@ -408,9 +416,7 @@ footer {
     text-align: left;
   }
 
-  
   .footertxt h2 {
     font-size: 1.2rem;
   }
-
-  }
+}

@@ -1,7 +1,5 @@
 const User = require("../models/user");
 const Token = require("../models/token");
-// const bcrypt = require('bcrypt');
-// const saltRounds = 10
 const { sendMail } = require("../services/emailService");
 
 // @route POST api/auth/register
@@ -21,11 +19,11 @@ exports.register = async (req, res) => {
     // save newly created user
     const newUser = new User({ ...req.body, role: "basic" });
     await User.register(newUser, req.body.password);
-    // let hashedVariable = bcrypt.hashSync(newUser.password, saltRounds);
-    // newUser.password = hashedVariable;
     const user_ = await newUser.save();
 
-    await sendVerificationEmail(user_, req, res);
+    sendVerificationEmail(user_, req, res);
+
+    // send ejs page back here
   } catch (error) {
     res.status(500).json({ success: false, message: error.message });
   }
@@ -60,7 +58,6 @@ exports.login = async (req, res) => {
 
       req.login(foundUser, (error) => {
         if (error) return res.status(500).json({ message: error.message });
-        console.log(req.user);
         return res.status(200).json({ user: req.user });
       });
     });
