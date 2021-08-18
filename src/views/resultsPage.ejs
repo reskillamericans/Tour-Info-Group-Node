@@ -39,7 +39,7 @@
 
 <section class="search-results-line">
     <h2 class="search-results-title">Search results</h2>
-    <h2 class="matches">Showing 12 results</h2>
+    <h2 class="matches">Showing <%= tours.length %> results</h2>
 </section>
 
 <section class="search-results-image-boxes">
@@ -48,7 +48,7 @@
         <div class="search-box-container-1">
             <div class="search-results-box-1">
                 <h2 class="Site-seeing-text"><%= location.category %></h2>
-                <a href="#"><img class="yosemitepic1"src ="/img/Yizrl9N_eDA-1.png" height="183px" width="327px"
+                <a href="#"><img class="yosemitepic1"src =<%= location.featureImage %> height="183px" width="327px"
                                  alt="Yosemite-photo"></a>
                 <h2 class="search-box-headline"><%= location.title %></h2>
                 <h3 class="search-box-paragraph"><%= location.descriptions %></h3>
