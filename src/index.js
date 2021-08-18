@@ -1,7 +1,6 @@
 require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
-// const passport = require("passport");
 const index = require("./routes/index");
 const locationRoutes = require("./routes/locationRoutes");
 const loginPageRoutes = require("./routes/loginPageRoute");
@@ -11,6 +10,7 @@ const userRoutes = require("./routes/userRoutes");
 const newsletterRoutes = require("./routes/newsletterRoutes");
 const contactRoutes = require("./routes/contactRoutes");
 const tourRoutes = require("./routes/tourRoutes");
+const registrationPageRoutes = require("./routes/registrationPageRoutes");
 const app = express();
 const port = process.env.PORT || 3000;
 const path = require("path");
@@ -38,8 +38,6 @@ dbSetup();
 //==================================================
 // INITIALIZE PASSPORT MIDDLEWARE
 //==================================================
-// app.use(passport.initialize());
-// require("./middlewares/jwt")(passport);
 
 const User = require("./models/user");
 const passport = require("passport");
@@ -58,7 +56,6 @@ app.use(
   })
 );
 app.use(function (req, res, next) {
-  console.log(req.user);
   res.locals.currentUser = req.user;
   next();
 });
@@ -81,6 +78,7 @@ app.use(userRoutes);
 app.use(newsletterRoutes);
 app.use(contactRoutes);
 app.use(tourRoutes);
+app.use(registrationPageRoutes);
 
 //==================================================
 // SEEDERS
