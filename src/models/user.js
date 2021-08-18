@@ -29,6 +29,27 @@ const UserSchema = new Schema(
       required: "Last Name is required",
       max: 100,
     },
+    address: {
+      type: String,
+    },
+    city: {
+      type: String,
+    },
+    state: {
+      type: String,
+    },
+    zipCode: {
+      type: String,
+    },
+    phone: {
+      type: String,
+    },
+    birthMonth: {
+      type: String,
+    },
+    birthYear: {
+      type: String,
+    },
     bio: {
       type: String,
       required: false,
