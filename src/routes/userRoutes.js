@@ -7,7 +7,7 @@ const authenticate = require("../middlewares/authenticate");
 router.get("/user", User.index);
 
 // PROFILE
-router.get("/user/profile", authenticate, User.profile);
+router.get("/user/profile",authenticate, User.profile);
 
 // SHOW
 router.get("/user/:id", User.show);

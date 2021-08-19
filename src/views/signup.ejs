@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style type="text/css">@import url(/css/signup.css);</style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Touryst</title>
+    <link rel="shortcut icon" type="image/jpg" href=""/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+<header class="header">
+    <div class="menu">
+        <a href="/"><img src="/img/Group 186.png" alt="Touryst Logo"></a>
+        <ul class="right">
+            <li><a href="/">Home</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Contact</a></li>
+            <li class="signin"><a href="#"><i class="far fa-user-circle"></i>Sign In</a></li>
+            <li><a href="/auth" class="purpbg">Join Now</a></li>
+        </ul>
+    </div>
+</header>
+
+<section>
+    <div class="signupcontainer">
+
+        <h2>Sign-In <span>or</span> Create Account</h2>
+        <div class="googlesignin"><i class="fab fa-google fa-2x"></i><p>Sign in with Google</p></div>
+        <h3>or</h3>
+
+        <form>
+            <label for="email">Email</label><br>
+            <input type="text" id="email" name="email"><br>
+            <label for="password">Password</label><br>
+            <input type="text" id="passWord" name="password"><br>
+            <div class="userinput"><div class="remember"><input type="checkbox" id="rememberMe" name="remember" value="remember">
+                    <label for="remember">Remember Me</label></div><input type="submit" value="Sign In"></div> </form>
+        <a href="/auth/reset/:token">Forgot Password?</a>
+    </div>
+</section>
+
+<section class="prefooter">
+    <div class="footerleft">
+        <ul class="footerlinks">
+            <li><a href="/">Home</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Contact Us</a></li>
+        </ul>
+
+        <ul class="socialmediaicons">
+            <li><i class="fab fa-twitter fa-2x"></i></li>
+            <li><i class="fab fa-facebook-f fa-2x"></i></li>
+            <li><i class="fab fa-instagram fa-2x"></i></li>
+        </ul>
+    </div>
+
+    <div class="newsletter">
+        <h1>Be in the know on all travel deals and news</h1>
+        <div class="newslettercontainer">
+            <input type="email" placeholder="Email Address: "><button type="submit">Sign Up</button>
+        </div>
+    </div>
+
+</section>
+
+
+
+<footer>
+    <div class="footertxtcontainer">
+        <div class="footertxt">
+            <h2>Experience the Adventure that Awaits you!</h2></br>
+            <p> &#169; 2021 Toursyt | All Rights Reserved </br>
+                Privacy Policy | Terms & Conditions</p>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

@@ -1,13 +1,10 @@
 const express = require('express');
 const { check } = require('express-validator');
 const Auth = require('../controllers/authController');
+const Form = require('../controllers/loginPageController');
 const Password = require('../controllers/passwordController');
 const validate = require('../middlewares/validate');
 const router = express.Router();
-
-router.get('/auth', (req, res) => {
-	res.status(200).json({message: "You are in the Auth Endpoint. Register or Login to test Authentication."});
-});
 
 // POST request to '/register' to validate all inputs during registration and login to then register user
 router.post('/auth/register', [
@@ -32,7 +29,9 @@ router.post('/auth/recover', [
 ], validate, Password.recover);
 
 // GET request to '/reset/:token' to obtain and validate the reset the token
-router.get('/auth/reset/:token', Password.reset);
+router.get('/auth/reset/:token', (req, res) => {
+	res.status(200).render("reset");
+}, Password.reset);
 
 // POST request to '/reset/:token' to validate password requirements and set password
 router.post('/auth/reset/:token', [

@@ -9,6 +9,9 @@ const tourSchema = new Schema({
   notes: String,
 	city:  String,
   country: String,
+	price: Number,
+	duration: Number,
+	date: Date,
   category: {
   	type: String,
   	enum: ['solo', 'group', 'private']

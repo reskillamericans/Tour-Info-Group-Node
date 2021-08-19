@@ -4,6 +4,7 @@ const cors = require("cors");
 const flash = require("connect-flash"); //added flash here - DOUBLE CHECK 
 const index = require("./routes/index");
 const locationRoutes = require("./routes/locationRoutes");
+const loginPageRoutes = require("./routes/loginPageRoute");
 const authRoutes = require("./routes/authRoutes");
 const passRoutes = require("./routes/passwordRoutes");
 const userRoutes = require("./routes/userRoutes");
@@ -34,12 +35,6 @@ app.get(passRoutes, (req, res) => {
   res.render("reset");
 });
 
-// // // //////////
-// app.get('/contactus', (req, res) => {
-// res.render('contact', { message: req.flash('info')});
-//   // req.flash('message', 'This is a message from the "/" endpoint');
-//   // res.redirect('/contact');
-// });
 
 //==================================================
 // DATABASE
@@ -104,6 +99,7 @@ app.use(
 //==================================================
 app.use(index);
 app.use(locationRoutes);
+app.use(loginPageRoutes);
 app.use(authRoutes);
 app.use(passRoutes);
 app.use(userRoutes);
@@ -135,16 +131,3 @@ app.listen(port, () => {
 });
 
 
-
-// WHAT ABOUT THIS???
-
-// app.get('/flash', function(req, res){
-//   // Set a flash message by passing the key, followed by the value, to req.flash().
-//   req.flash('info', 'Flash is back!')
-//   res.redirect('/');
-// });
- 
-// app.get('/', function(req, res){
-//   // Get an array of flash messages by passing the key to req.flash()
-//   res.render('index', { messages: req.flash('info') });
-// });

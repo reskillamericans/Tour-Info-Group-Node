@@ -118,7 +118,7 @@ button {
   align-items: center;
   padding: 20vh 0 20vh 0;
   margin: 0;
-  background-image: url("/assets/img/Main Top Image Mountain.jpg");
+  background-image: url("/img/Main Top Image Mountain.jpg");
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
@@ -197,15 +197,15 @@ input[type="number"] {
 }
 
 .tif1 {
-  background-image: url("/assets/img/Rectangle 101@2x.jpg");
+  background-image: url("/img/Rectangle 101@2x.jpg");
 }
 
 .tif2 {
-  background-image: url("/assets/img/Rectangle 102@2x.jpg");
+  background-image: url("/img/Rectangle 102@2x.jpg");
 }
 
 .tif3 {
-  background-image: url("/assets/img/Rectangle 103@2x.jpg");
+  background-image: url("/img/Rectangle 103@2x.jpg");
 }
 
 /*-----------------------TRI TOURS BLURB------------------------------*/
@@ -348,7 +348,7 @@ input[type="number"] {
 }
 
 .socialproofimgframe {
-  background-image: url("/assets/img/tourist.jpg");
+  background-image: url("/img/tourist.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -458,7 +458,7 @@ input[type="number"] {
 /*----------------------- FOOTER START ------------------------------*/
 
 footer {
-  background-image: url("/assets/img/Main Top Image Mountain.jpg");
+  background-image: url("/img/Main Top Image Mountain.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
