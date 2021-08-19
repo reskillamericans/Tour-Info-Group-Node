@@ -15,10 +15,10 @@ exports.sendToAdmin = async (req, res) => {
     
     
     req.flash(
-    'contactus',
-    "Thank you for contacting the Touryst team!"
+    'emailsent',
+    "Your message has been sent! Thank you for contacting the Touryst team!"
   );
-  return res.redirect('/');
+  return res.redirect('/contactus');
   } catch (err) {
 
 

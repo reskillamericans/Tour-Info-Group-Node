@@ -13,6 +13,7 @@ const tourRoutes = require("./routes/tourRoutes");
 const aboutRoutes = require("./routes/aboutRoutes");
 const contactPageRoutes = require("./routes/contactPageRoutes");
 
+const registrationPageRoutes = require("./routes/registrationPageRoutes");
 const app = express();
 const port = process.env.PORT || 3000;
 const path = require("path");
@@ -49,8 +50,6 @@ dbSetup();
 //==================================================
 // INITIALIZE PASSPORT MIDDLEWARE
 //==================================================
-// app.use(passport.initialize());
-// require("./middlewares/jwt")(passport);
 
 const User = require("./models/user");
 const passport = require("passport");
@@ -68,11 +67,14 @@ app.use(
     },
   })
   );
+  app.use(flash());             ////added flash here - DOUBLE CHECK 
   app.use(function (req, res, next) {
     console.log(req.user);
     res.locals.currentUser = req.user;
+    res.locals.emailsent = req.flash ('emailsent')
     next();
   });
+
   app.use(passport.initialize());
   app.use(passport.session());
   passport.use(User.createStrategy());
@@ -80,7 +82,6 @@ app.use(
   passport.deserializeUser(User.deserializeUser());
   passport.use("local", new LocalStrategy(User.authenticate()));
   
-  app.use(flash());             ////added flash here - DOUBLE CHECK 
  // // //////////
   app.get('/contactus', (req, res) => {
   res.render('contact', { message: req.flash('info')});
@@ -112,6 +113,8 @@ app.use(tourRoutes);
 app.use(aboutRoutes);
 app.use(contactPageRoutes);
 // app.use(renderEmailConfirmation);
+app.use(registrationPageRoutes);
+
 //==================================================
 // SEEDERS
 //==================================================

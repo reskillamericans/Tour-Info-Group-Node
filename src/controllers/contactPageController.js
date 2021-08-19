@@ -3,6 +3,12 @@ exports.renderContactUs = async (req, res) => {
     return res.status(200).render('contact')
 
 }
+
+// "Email(s) sent",
+// "Thank you for contacting the Touryst team!"
+
+
+
 //Flash notification confirming sent email
 // req.flash(
 //     "Email(s) sent",
