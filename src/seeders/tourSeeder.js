@@ -3,7 +3,7 @@ const toursList = require("./tours.json");
 const faker = require("faker");
 
 toursList.forEach((element) => {
-  element.images = faker.image.nature();
+  element.featureImage = `${faker.image.nature()}?random=${Math.round(Math.random() * 1000)}`;
 });
 
 exports.seedTours = () => {

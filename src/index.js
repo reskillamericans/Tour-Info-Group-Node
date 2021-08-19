@@ -3,6 +3,7 @@ const express = require("express");
 const cors = require("cors");
 const index = require("./routes/index");
 const locationRoutes = require("./routes/locationRoutes");
+const loginPageRoutes = require("./routes/loginPageRoute");
 const authRoutes = require("./routes/authRoutes");
 const passRoutes = require("./routes/passwordRoutes");
 const userRoutes = require("./routes/userRoutes");
@@ -27,9 +28,7 @@ app.use(express.static(path.join(__dirname, "../public")));
 //==================================================
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
-app.get(passRoutes, (req, res) => {
-  res.render("reset");
-});
+
 //==================================================
 // DATABASE
 //==================================================
@@ -72,6 +71,7 @@ passport.use("local", new LocalStrategy(User.authenticate()));
 //==================================================
 app.use(index);
 app.use(locationRoutes);
+app.use(loginPageRoutes);
 app.use(authRoutes);
 app.use(passRoutes);
 app.use(userRoutes);

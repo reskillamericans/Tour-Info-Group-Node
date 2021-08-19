@@ -8,7 +8,10 @@
     "city": "Mexico City",
     "country": "Mexico",
     "category": "solo",
-    "travelType": "road"
+    "travelType": "road",
+    "duration": "1",
+    "price": "100",
+    "date": "08/20/2021"
   },
   {
     "title": "Checking out New York",
@@ -19,7 +22,10 @@
     "city": "New York",
     "country": "USA",
     "category": "group",
-    "travelType": "road"
+    "travelType": "road",
+    "duration": "2",
+    "price": "200",
+    "date": "08/21/2021"
   },
   {
     "title": "Zion National Park",
@@ -30,7 +36,10 @@
     "city": "Zion",
     "country": "USA",
     "category": "group",
-    "travelType": "road"
+    "travelType": "road",
+    "duration": "3",
+    "price": "300",
+    "date": "08/22/2021"
   },
   {
     "title": "Colorodo Rockies",
@@ -41,7 +50,10 @@
     "city": "Colorodo Springs",
     "country": "USA",
     "category": "group",
-    "travelType": "road"
+    "travelType": "road",
+    "duration": "4",
+    "price": "400",
+    "date": "08/23/2021"
   },
   {
     "title": "Vacation",
@@ -52,7 +64,10 @@
     "city": "Punta Cana",
     "country": "Dominican Republic",
     "category": "private",
-    "travelType": "air"
+    "travelType": "air",
+    "duration": "5",
+    "price": "500",
+    "date": "08/24/2021"
   },
   {
     "title": "Visiting Texas",
@@ -63,7 +78,10 @@
     "city": "Houston",
     "country": "USA",
     "category": "solo",
-    "travelType": "road"
+    "travelType": "road",
+    "duration": "1",
+    "price": "100",
+    "date": "08/20/2021"
   },
   {
     "title": "Gambling in Vegas",
@@ -74,7 +92,10 @@
     "city": "Las Vegas",
     "country": "USA",
     "category": "group",
-    "travelType": "road"
+    "travelType": "road",
+    "duration": "2",
+    "price": "200",
+    "date": "08/21/2021"
   },
   {
     "title": "Isolation",
@@ -85,7 +106,10 @@
     "city": "Souva",
     "country": "Fiji",
     "category": "solo",
-    "travelType": "boat"
+    "travelType": "boat",
+    "duration": "3",
+    "price": "300",
+    "date": "08/22/2021"
   },
   {
     "title": "Central America",
@@ -96,7 +120,10 @@
     "city": "La Libertad",
     "country": "El Salvador",
     "category": "solo",
-    "travelType": "air"
+    "travelType": "air",
+    "duration": "4",
+    "price": "400",
+    "date": "08/23/2021"
   },
   {
     "title": "More ancestral ruins",
@@ -107,7 +134,10 @@
     "city": "Antigua",
     "country": "Guatemala",
     "category": "solo",
-    "travelType": "road"
+    "travelType": "road",
+    "duration": "5",
+    "price": "500",
+    "date": "08/24/2021"
   },
   {
     "title": "The Philippines",
@@ -118,7 +148,10 @@
     "city": "Manila",
     "country": "Philippines",
     "category": "solo",
-    "travelType": "boat"
+    "travelType": "boat",
+    "duration": "1",
+    "price": "100",
+    "date": "08/20/2021"
   },
   {
     "title": "West Coast",
@@ -129,7 +162,10 @@
     "city": "Los Angeles",
     "country": "USA",
     "category": "solo",
-    "travelType": "road"
+    "travelType": "road",
+    "duration": "2",
+    "price": "200",
+    "date": "08/21/2021"
   },
   {
     "title": "North north America",
@@ -140,7 +176,10 @@
     "city": "Toronto",
     "country": "Canada",
     "category": "solo",
-    "travelType": "road"
+    "travelType": "road",
+    "duration": "3",
+    "price": "300",
+    "date": "08/22/2021"
   },
   {
     "title": "Tea and crumpits",
@@ -151,7 +190,10 @@
     "city": "London",
     "country": "UK",
     "category": "solo",
-    "travelType": "road"
+    "travelType": "road",
+    "duration": "4",
+    "price": "400",
+    "date": "08/23/2021"
   },
   {
     "title": "brr it's cold",
@@ -162,7 +204,10 @@
     "city": "Anchorage",
     "country": "Alaska",
     "category": "solo",
-    "travelType": "road"
+    "travelType": "road",
+    "duration": "5",
+    "price": "500",
+    "date": "08/24/2021"
   },
   {
     "title": "too hot",
@@ -173,7 +218,10 @@
     "city": "Arizona",
     "country": "Pheonix",
     "category": "solo",
-    "travelType": "road"
+    "travelType": "road",
+    "duration": "1",
+    "price": "100",
+    "date": "08/20/2021"
   },
   {
     "title": "Top of the world",
@@ -184,7 +232,10 @@
     "city": "Dubai",
     "country": "UAE",
     "category": "solo",
-    "travelType": "road"
+    "travelType": "road",
+    "duration": "2",
+    "price": "200",
+    "date": "08/21/2021"
   },
   {
     "title": "Windy City",
@@ -195,7 +246,10 @@
     "city": "Chicago",
     "country": "USA",
     "category": "solo",
-    "travelType": "road"
+    "travelType": "road",
+    "duration": "3",
+    "price": "300",
+    "date": "08/22/2021"
   },
   {
     "title": "Mountain climbing",
@@ -206,7 +260,10 @@
     "city": "Zermatt",
     "country": "Switzerland",
     "category": "solo",
-    "travelType": "road"
+    "travelType": "road",
+    "duration": "4",
+    "price": "400",
+    "date": "08/23/2021"
   },
   {
     "title": "Tropical vacay",
@@ -217,6 +274,9 @@
     "city": "Managua",
     "country": "Nicaragua",
     "category": "solo",
-    "travelType": "road"
+    "travelType": "road",
+    "duration": "5",
+    "price": "500",
+    "date": "08/24/2021"
   }
 ]

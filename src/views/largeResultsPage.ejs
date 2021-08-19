@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style type="text/css">@import url(/css/largeresultspage.css);</style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Touryst</title>
+    <link rel="shortcut icon" type="image/jpg" href=""/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+<header class="header">
+    <div class="menu">
+        <a href="#"><img src="/img/Group 186.png" alt="Touryst Logo"></a>
+        <ul class="right">
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Contact</a></li>
+            <li class="signin"><a href="#"><i class="far fa-user-circle"></i>Sign In</a></li>
+            <li><a href="#" class="purpbg">Join Now</a></li>
+        </ul>
+    </div>
+</header>
+
+<div class="tourname"><h1><%= tour.title %></h1>
+    <button><%= tour.category %></button>
+</div>
+
+
+
+<div class="container">
+    <div class="img-1"></div>
+    <div class="img-2"></div>
+    <div class="img-3"></div>
+    <div class="img-4"></div>
+</div>
+
+<section class="tourimg">
+    <div class="one"></div>
+    <div class="two"></div>
+    <div class="three"></div>
+    <div class="four"></div>
+</section>
+
+<section class="overview">
+    <div class="headline"><h3><%= tour.title %> Tour Overview</h3> <p><i class="far fa-clock"></i><%= tour.duration %> Hour<i class="fas fa-map-marker-alt"></i><%= `${tour.city}, ${tour.country}` %></p></div>
+    <p><%= tour.descriptions %></p>
+
+    <h3>Important Things To Know</h3>
+    <p> <%= tour.notes %></p>
+</section>
+
+<section class="testimonial"><h3>Testimonial</h3>
+    <div class="test">
+        <i class="far fa-user-circle fa-3x"></i>
+
+        <div class="namemonth"><p>Candace Shirley</p><p><strong>1 month ago</strong></p></div>
+
+
+        <div class="starcontainer"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+
+        <div class="testtxt"><p>"Enjoyed this amazing time to relax and enjoy the beautiful view of Big Bear lake. I would recommend this tour if you don't know the area too well."</p></div>
+    </div>
+
+    <div class="test">
+        <i class="far fa-user-circle fa-3x"></i>
+
+        <div class="namemonth"><p>Ron Hilton</p><p><strong>3 months ago</strong></p></div>
+
+
+        <div class="starcontainer"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></div>
+
+        <div class="testtxt"><p>"A lot of walking and did not realize! Although I was tired, the views that I saw during the tour were absolutely astounding. My tour guide was really great and knowledgeable of the area."</p></div>
+    </div>
+
+    <button>Book Now</button>
+</section>
+
+<section class="nearby">
+    <h1>Keep Exploring Nearby</h1>
+    <div class="nearbycitiescontainer">
+        <div class="cityimg ci1"><h1>Long Beach, CA</h1></div>
+        <div class="cityimg ci2"><h1>Las Vegas, NV</h1></div>
+    </div>
+</section>
+
+<section class="prefooter">
+    <div class="footerleft">
+        <ul class="footerlinks">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Contact Us</a></li>
+        </ul>
+
+        <ul class="socialmediaicons">
+            <li><i class="fab fa-twitter fa-2x"></i></li>
+            <li><i class="fab fa-facebook-f fa-2x"></i></li>
+            <li><i class="fab fa-instagram fa-2x"></i></li>
+        </ul>
+    </div>
+
+    <div class="newsletter">
+        <h1>Be in the know on all travel deals and news</h1>
+        <div class="newslettercontainer">
+            <input type="email" placeholder="Email Address: "><button type="submit">Sign Up</button>
+        </div>
+    </div>
+
+</section>
+
+<footer>
+    <div class="footertxtcontainer">
+        <div class="footertxt">
+            <h2>Experience the Adventure that Awaits you!</h2></br>
+            <p> &#169; 2021 Toursyt | All Rights Reserved </br>
+                Privacy Policy | Terms & Conditions</p>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
