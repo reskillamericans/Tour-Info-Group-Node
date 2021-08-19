@@ -1,7 +1,7 @@
 require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
-// const passport = require("passport");
+const flash = require("connect-flash"); //added flash here - DOUBLE CHECK 
 const index = require("./routes/index");
 const locationRoutes = require("./routes/locationRoutes");
 const authRoutes = require("./routes/authRoutes");
@@ -24,7 +24,6 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "../public")));
-
 //==================================================
 // EJS
 //==================================================
@@ -33,6 +32,14 @@ app.set("view engine", "ejs");
 app.get(passRoutes, (req, res) => {
   res.render("reset");
 });
+
+// // // //////////
+// app.get('/contactus', (req, res) => {
+// res.render('contact', { message: req.flash('info')});
+//   // req.flash('message', 'This is a message from the "/" endpoint');
+//   // res.redirect('/contact');
+// });
+
 //==================================================
 // DATABASE
 //==================================================
@@ -60,19 +67,37 @@ app.use(
       maxAge: 30 * 80000 * 1000,
     },
   })
-);
-app.use(function (req, res, next) {
-  console.log(req.user);
-  res.locals.currentUser = req.user;
-  next();
-});
-app.use(passport.initialize());
-app.use(passport.session());
-passport.use(User.createStrategy());
-passport.serializeUser(User.serializeUser());
-passport.deserializeUser(User.deserializeUser());
-passport.use("local", new LocalStrategy(User.authenticate()));
+  );
+  app.use(function (req, res, next) {
+    console.log(req.user);
+    res.locals.currentUser = req.user;
+    next();
+  });
+  app.use(passport.initialize());
+  app.use(passport.session());
+  passport.use(User.createStrategy());
+  passport.serializeUser(User.serializeUser());
+  passport.deserializeUser(User.deserializeUser());
+  passport.use("local", new LocalStrategy(User.authenticate()));
+  
+  app.use(flash());             ////added flash here - DOUBLE CHECK 
+ // // //////////
+  app.get('/contactus', (req, res) => {
+  res.render('contact', { message: req.flash('info')});
+    // req.flash('message', 'This is a message from the "/" endpoint');
+    // res.redirect('/contact');
+  });
+  app.get('/about', (req, res) => {
+    req.flash('info', 'test');
+    res.redirect('/contactus')
+    
+    });
+    
+    app.get('/contact', (req, res) => {
+      res.send(req.flash('message'));
+    });
 
+    
 //==================================================
 // ROUTES
 //==================================================
@@ -86,13 +111,14 @@ app.use(contactRoutes);
 app.use(tourRoutes);
 app.use(aboutRoutes);
 app.use(contactPageRoutes);
-
+// app.use(renderEmailConfirmation);
 //==================================================
 // SEEDERS
 //==================================================
 const { seedCities } = require("./seeders/citySeeder");
 const { seedCountries } = require("./seeders/countrySeeder");
 const { seedTours } = require("./seeders/tourSeeder");
+// const { renderEmailConfirmation } = require("./controllers/emailConfirmationController");
 
 // seedCities();
 // seedCountries();
@@ -104,3 +130,18 @@ const { seedTours } = require("./seeders/tourSeeder");
 app.listen(port, () => {
   console.log(`Server is listening on port: ${port}`);
 });
+
+
+
+// WHAT ABOUT THIS???
+
+// app.get('/flash', function(req, res){
+//   // Set a flash message by passing the key, followed by the value, to req.flash().
+//   req.flash('info', 'Flash is back!')
+//   res.redirect('/');
+// });
+ 
+// app.get('/', function(req, res){
+//   // Get an array of flash messages by passing the key to req.flash()
+//   res.render('index', { messages: req.flash('info') });
+// });
