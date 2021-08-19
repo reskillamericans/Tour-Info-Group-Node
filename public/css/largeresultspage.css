@@ -137,7 +137,7 @@ section {
 
 .one {
   grid-area: one;
-  background-image: url("/assets/img/Yizrl9N_eDA-5.png");
+  background-image: url("/img/Yizrl9N_eDA-5.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -145,7 +145,7 @@ section {
 
 .two {
   grid-area: two;
-  background-image: url("/assets/img/Yizrl9N_eDA.png");
+  background-image: url("/img/Yizrl9N_eDA.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -153,7 +153,7 @@ section {
 
 .three {
   grid-area: three;
-  background-image: url("/assets/img/Yizrl9N_eDA-3.png");
+  background-image: url("/img/Yizrl9N_eDA-3.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -161,7 +161,7 @@ section {
 
 .four {
   grid-area: four;
-  background-image: url("/assets/img/Yizrl9N_eDA-4.png");
+  background-image: url("/img/Yizrl9N_eDA-4.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -264,14 +264,14 @@ section {
 }
 
 .ci1 {
-  background-image: url("/assets/img/Rectangle 171.png");
+  background-image: url("/img/Rectangle 171.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
 
 .ci2 {
-  background-image: url("/assets/img/Rectangle 172.png");
+  background-image: url("/img/Rectangle 172.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -328,7 +328,7 @@ section {
 /*----------------------- FOOTER START ------------------------------*/
 
 footer {
-  background-image: url("/assets/img/Main Top Image.jpg");
+  background-image: url("/img/Main Top Image.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

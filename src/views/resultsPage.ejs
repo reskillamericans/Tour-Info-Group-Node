@@ -48,11 +48,11 @@
         <div class="search-box-container-1">
             <div class="search-results-box-1">
                 <h2 class="Site-seeing-text"><%= location.category %></h2>
-                <a href="#"><img class="yosemitepic1"src =<%= location.featureImage %> height="183px" width="327px"
+                <a href="#"><img class="yosemitepic1"src= <%= location.featureImage %> height="183px" width="327px"
                                  alt="Yosemite-photo"></a>
                 <h2 class="search-box-headline"><%= location.title %></h2>
                 <h3 class="search-box-paragraph"><%= location.descriptions %></h3>
-                <button class="see-details-button">See details</button>
+                <a href="/tours/<%= location._id %>"><button class="see-details-button">See details</button></a>
             </div>
         </div>
     <% }) %>

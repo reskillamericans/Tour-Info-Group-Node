@@ -5,8 +5,7 @@ const { sendMail } = require("../services/emailService");
 
 // fetches all tours
 exports.fetchTours = (req, res) => {
-  // searches for tours by city or country
-	console.log(req.params);
+  // searches for tours by city or country or travel type
   let conditions = {};
   if (req.query.city) {
     conditions.city = req.query.city;
@@ -33,7 +32,7 @@ exports.fetchSingleTour = (req, res) => {
     } else if (!tour) {
       return res.status(404).json({ message: "tour not found" });
     } else {
-      return res.status(200).json({ tour });
+      return res.status(200).render('largeResultsPage', { tour: tour });
     }
   });
 };

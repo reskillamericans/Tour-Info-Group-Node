@@ -87,9 +87,9 @@ const { seedCities } = require("./seeders/citySeeder");
 const { seedCountries } = require("./seeders/countrySeeder");
 const { seedTours } = require("./seeders/tourSeeder");
 
-seedCities();
-seedCountries();
-seedTours();
+// seedCities();
+// seedCountries();
+// seedTours();
 
 //==================================================
 // SERVER
