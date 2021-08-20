@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous"referrerpolicy="no-referrer" />
+    <title>Contact Us</title>
+    <link rel="shortcut icon" type="image/jpg" href="" />
+    <link rel="stylesheet" href="/css/contact.css">
+    <!-- <link rel="stylesheet" href="/headerfooter.css"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+
+  <body>
+    <header class="header">
+      <div class="menu">
+          <a href="#"><img src="/img/Group 186.png" alt="Touryst Logo"></a>
+          <ul class="right">
+              <li><a href="#">Home</a></li>
+              <li><a href="#">About</a></li>
+              <li><a href="#">Contact</a></li>
+              <li class="signin"><a href="#"><i class="far fa-user-circle"></i>Sign In</a></li>
+              <li><a href="#" class="purpbg">Join Now</a></li>
+          </ul>
+      </div>
+  </header>
+<%if(emailsent){%> 
+  <p><%=emailsent%></p>
+<%}%> 
+
+    <hr>
+
+
+    <section class="topcontainer">
+      <h1>Contact Us</h1> <br>
+      <p>Need help booking tours, preparation for a tour or questions about existing bookings? <br><br>
+        You came to the right place! <br> 
+        <br> Let our knowledgeable travel consultants help you with your travel needs. <br>
+      </p>
+    </section>
+
+    <section class="middlesection">
+
+      <section class="leftcontainer">
+        <div class="AddressnNumber">
+          <h4  id="address">Address</h4>
+          <h4>Phone</h4>
+        </div>
+  
+        <div class="secondleft"> 
+          <div class="Address-Info">
+            <h4>Touryst Headquarters</h4>
+            <p>2356 Maple Plaza Square <br> <br>
+              Suite 305 <br> <br>
+              New York, NY 10001 <br>
+            </p>
+          </div>
+  
+          <div class="experts-info">
+            <h4>Contact our travel experts!</h4>
+            <p>1-888-555-0000 <br>
+              <br> Mon-Fri 8am - 8pm EST <br>
+              <br> Sat-Sun 9am - 6pm EST <br>
+            </p>
+          </div>
+  
+          <div class="support-team">
+            <p>If you're on tour and need <br>
+            assistance, please call pour 24/7 <br>
+            support team.</p>
+            <h4>1-888-555-1000</h4>
+          </div>
+        </div>
+      </section>
+    
+      <section class="rightcontainer">
+        <div class="Name-Email-Message">
+          <h4 id="name">Name</h4>
+          <h4 id="email">Email</h4>
+          <h4 id="message">Message</h4>
+        </div>
+
+    <form action="/contact" method="post">
+        <div class="input-field">
+          <div class="secondright">
+           <h4>Want to send us an email? Fill out the form below</h4>
+          </div>
+          <div class="enter-name">
+            <input type="text" id="name" name="name"><br><br>
+          </div>
+
+          <div class="enter-email">
+            <input type="text" id="email" name="email"><br>
+          </div>
+
+          <div class="write-msg">
+            <input type="text" id="msg" name="message"><br>
+          </div>
+
+          <div class="bottom-container">
+            <div class="bottom-right">
+              <input type="checkbox" id="emailcopy" name="emailcopy">
+              <label for="emailcopy">Send me a copy</label><br><br>
+              <!-- <input type="submit" value="Submit Email"> -->
+            </div>
+  
+            <button id="button">Send Email</button>
+          </div>
+        </div>   
+    </form>   
+      </section>
+    </section>
+
+    <section class="prefooter">
+      <div class="footerleft">
+          <ul class="footerlinks">
+              <li><a href="/">Home</a></li>
+              <li><a href="/about">About</a></li>
+              <li><a href="/contact">Contact</a></li>
+          </ul>
+
+          <ul class="socialmediaicons">
+              <li><i class="fab fa-twitter fa-2x"></i></li>
+              <li><i class="fab fa-facebook-f fa-2x"></i></li>
+              <li><i class="fab fa-instagram fa-2x"></i></li>
+          </ul>
+      </div>
+
+      <div class="newsletter">
+        <%if(subscribed){%> 
+          <p><%=subscribed%></p>
+        <%}%> 
+          <h1>Be in the know on all travel deals and news</h1>
+          <div class="newslettercontainer">
+              <input type="email" placeholder="Email Address: "><button type="submit">Sign Up</button>
+          </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footertxtcontainer">
+          <div class="footertxt">
+              <h2>Experience the Adventure that Awaits you!w</h2></br>
+              <p> &#169; 2021 Toursyt | All Rights Reserved </br>
+                  Privacy Policy | Terms & Conditions</p>
+          </div>
+      </div>
+    </footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+  </body>
+</html>

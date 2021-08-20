@@ -5,7 +5,7 @@ const validate = require("../middlewares/validate");
 const { sendToAdmin } = require("../controllers/contactController");
 
 router.post(
-  "/contact",
+  "/contact", 
   [
     check("email").isEmail().withMessage("Enter a valid email address"),
     check("name").not().isEmpty().withMessage("Your name is required"),

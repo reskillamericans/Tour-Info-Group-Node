@@ -18,7 +18,14 @@ exports.subscribe = async (req, res) => {
 
     sendMail({ to, subject, html });
 
-    return res.status(200).json({ message: "Subscribed to newsletter." });
+    return req.flash(
+      'subscribed',
+      "Thank you for subscribing to the Touryst Newsletter! Stay tuned for exciting tours!"
+    );
+    // return res.redirect('/contactus');
+  
+
+    // return res.status(200).json({ message: "Subscribed to newsletter." });
   } catch (err) {
     res.status(500).json({ success: false, message: error.message });
   }
