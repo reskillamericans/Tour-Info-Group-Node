@@ -12,19 +12,19 @@
   <body>
     <header class="header">
       <div class="menu">
-          <a href="#"><img src="/img/Group 186.png" alt="Touryst Logo"></a>
+          <a href="/"><img src="/img/Group 186.png" alt="Touryst Logo"></a>
           <ul class="right">
-              <li><a href="#">Home</a></li>
-              <li><a href="#">About</a></li>
-              <li><a href="#">Contact</a></li>
-              <li class="signin"><a href="#"><i class="far fa-user-circle"></i>Sign In</a></li>
-              <li><a href="#" class="purpbg">Join Now</a></li>
+              <li><a href="/">Home</a></li>
+              <li><a href="/about">About</a></li>
+              <li><a href="/contactus">Contact</a></li>
+              <li class="signin"><a href="/auth/login"><i class="far fa-user-circle"></i>Sign In</a></li>
+              <li><a href="/register" class="purpbg">Join Now</a></li>
           </ul>
       </div>
   </header>
-<%if(emailsent){%> 
+<%if(emailsent){%>
   <p><%=emailsent%></p>
-<%}%> 
+<%}%>
 
     <hr>
 
@@ -32,7 +32,7 @@
     <section class="topcontainer">
       <h1>Contact Us</h1> <br>
       <p>Need help booking tours, preparation for a tour or questions about existing bookings? <br><br>
-        You came to the right place! <br> 
+        You came to the right place! <br>
         <br> Let our knowledgeable travel consultants help you with your travel needs. <br>
       </p>
     </section>
@@ -44,8 +44,8 @@
           <h4  id="address">Address</h4>
           <h4>Phone</h4>
         </div>
-  
-        <div class="secondleft"> 
+
+        <div class="secondleft">
           <div class="Address-Info">
             <h4>Touryst Headquarters</h4>
             <p>2356 Maple Plaza Square <br> <br>
@@ -53,7 +53,7 @@
               New York, NY 10001 <br>
             </p>
           </div>
-  
+
           <div class="experts-info">
             <h4>Contact our travel experts!</h4>
             <p>1-888-555-0000 <br>
@@ -61,7 +61,7 @@
               <br> Sat-Sun 9am - 6pm EST <br>
             </p>
           </div>
-  
+
           <div class="support-team">
             <p>If you're on tour and need <br>
             assistance, please call pour 24/7 <br>
@@ -70,7 +70,7 @@
           </div>
         </div>
       </section>
-    
+
       <section class="rightcontainer">
         <div class="Name-Email-Message">
           <h4 id="name">Name</h4>
@@ -101,11 +101,11 @@
               <label for="emailcopy">Send me a copy</label><br><br>
               <!-- <input type="submit" value="Submit Email"> -->
             </div>
-  
+
             <button id="button">Send Email</button>
           </div>
-        </div>   
-    </form>   
+        </div>
+    </form>
       </section>
     </section>
 
@@ -114,7 +114,7 @@
           <ul class="footerlinks">
               <li><a href="/">Home</a></li>
               <li><a href="/about">About</a></li>
-              <li><a href="/contact">Contact</a></li>
+              <li><a href="/contactus">Contact</a></li>
           </ul>
 
           <ul class="socialmediaicons">
@@ -125,9 +125,9 @@
       </div>
 
       <div class="newsletter">
-        <%if(subscribed){%> 
+        <%if(subscribed){%>
           <p><%=subscribed%></p>
-        <%}%> 
+        <%}%>
           <h1>Be in the know on all travel deals and news</h1>
           <div class="newslettercontainer">
               <input type="email" placeholder="Email Address: "><button type="submit">Sign Up</button>
@@ -156,6 +156,6 @@
 
 
 
-    
+
   </body>
 </html>
