@@ -18,7 +18,7 @@ const tourSchema = new Schema({
   },
   travelType: {
   	type: String,
-  	enum: ['road', 'air', 'boat']
+  	enum: ['road', 'air', 'boat', 'castle']
   }
 });
 

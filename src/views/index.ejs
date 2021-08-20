@@ -26,7 +26,7 @@
     <h1>Your Adventure Awaits!</h1>
     <div class="seachcontainer">
         <div class="searchinputs">
-            <input type="text" id="destination" name="destination" placeholder="Destination"><input type="date" value="Check In"><input type="date" value="Check Out"><input type="number" id="number" name="number" placeholder="Number of Travelers"><button type="submit" value="Submit">Search</button>
+            <input type="text" id="destination" name="destination" placeholder="Destination"><input type="date" value="Check In"><input type="date" value="Check Out"><input type="number" id="number" name="number" placeholder="Number of Travelers"><a href="/tours"><button type="submit" value="Submit">Search</button></a>
         </div>
     </div>
 </section>
@@ -52,7 +52,7 @@
 <section class="tritoursblurb">
     <p>Orci per hac etiam dictum. Torquent turpis cubilia massa cras ullamcorper sapien lacus blandit sodales posuere vulputate dictumst varius massa adipiscing viverra dapibus mattis. Vitae vestibulum hymenaeos torquent venenatis curabitur.</p>
 
-    <a href="#"><button type="button">Sign-up for a Tour</button></a>
+    <a href="/register"><button type="button">Sign-up for a Tour</button></a>
 </section>
 
 <section class="sixtours">
@@ -60,29 +60,29 @@
         <div class="tour-left">
             <!--                TODO: make functionality for images and links-->
             <div class="destination-left">
-                <h2>USA</h2>
-                <a href="#"><img class="item" src="/img/newyork.png"  alt="Image of The Statue of Liberty located New York, New York"></a>
+                <a href="/tours?country=USA"><h2>USA</h2></a>
+               <img class="item" src="/img/newyork.png"  alt="Image of The Statue of Liberty located New York, New York">
             </div>
             <div class="destination-left">
-                <h2>Europe</h2>
+                <a href="/tours?country=UK"><h2>Europe</h2></a>
                 <a href="#"><img class="item" src="/img/italy.png"  alt="Image of a mountainous town next to a river"></a>
             </div>
             <div class="destination-left">
-                <h2>Asia</h2>
+                <a href="/tours?country=China"><h2>Asia</h2></a>
                 <a href="#"><img class="item" src="/img/china.png"  alt="Image of a traditional archway next to a body of water"></a>
             </div>
         </div>
         <div class="tour-right">
             <div class="destination-right">
-                <h2>Caribbean</h2>
+                <a href="/tours?country=Dominican Republic"><h2>Caribbean</h2></a>
                 <img src="/img/caribbean.png" alt="Image of a boardwalk leading to the ocean surrounded by palm trees">
             </div>
             <div class="destination-right">
-                <h2>Africa</h2>
+                <a href="/tours?country=Africa"><h2>Africa</h2></a>
                 <img src="/img/africa.png" alt="Image of a tree in The Sahara Desert">
             </div>
             <div class="destination-right">
-                <h2>View All Tours</h2>
+                <a href="/tours"><h2>View All Tours</h2></a>
                 <a href="/tours"><img class="item" src="/img/Rectangle 90.png" alt="Image of a map of Earth surrounded by different countries currencies"></a>
             </div>
         </div>
@@ -109,22 +109,22 @@
     </div>
 
     <h2>Whether solo, group or private, Touryst is here to tailor your tours based on your interests.</h2></br>
-    <a href="#"><button type="button">Sign Up For A Tour</button></a>
+    <a href="/register"><button type="button">Sign Up For A Tour</button></a>
 </section>
 
 <section class="tourtypes">
     <div class="tourtypes-container">
 <!--        TODO: CREATE FUNCTIONALITY FOR H2 AND IMAGES-->
         <div class="tourselection">
-            <a href="#"><h2>Solo Tours</h2></a>
+            <a href="/tours?category=solo"><h2>Solo Tours</h2></a>
             <img src="/img/soloT.png" alt=""><p>Meet like-minded travelers, make memories and life-long friends!</p>
         </div>
         <div class="tourselection">
-            <a href="#"><h2>Group Tours</h2></a>
+            <a href="/tours?category=group"><h2>Group Tours</h2></a>
             <img src="/img/groupT.png" alt=""><p>Explore the world on your own!</p>
         </div>
         <div class="tourselection">
-            <a href="#"><h2>Private Tours</h2></a>
+            <a href="/tours?category=private"><h2>Private Tours</h2></a>
             <img src="/img/privateT.png" alt=""><p>Bring your friends and family along and make it a trip remember!</p>
         </div>
     </div>
@@ -134,9 +134,9 @@
     <h1>Social Testimonial</h1>
     <div class="testimonial">
         <div class="socialproofimgframe"></div>
-        <p>"I love that Toursyt helped me with every detail of planning my solo trip to Paris."<br>-Barbara D.</p>
+        <p>"I love that Touryst helped me with every detail of planning my solo trip to Paris."<br>-Barbara D.</p>
     </div>
-    <a href="#"><button>Sign-Up for a Tour</button></a>
+    <a href="/register"><button>Sign-Up for a Tour</button></a>
 </section>
 
 <section class="traveltype">
@@ -144,21 +144,21 @@
 
     <div class="top-preference">
         <div class="top-selection">
-            <a href="/tours/travelType/road"><h3>By Land</h3></a>
+            <a href="/tours?travelType=road"><h3>By Land</h3></a>
             <img src="/img/foodnwine.png"  alt="">
         </div>
         <div class="top-selection">
-            <a href="/tours/travelType/boat"><h3>By Sea</h3></a>
+            <a href="/tours?travelType=boat"><h3>By Sea</h3></a>
             <img src="/img/adventure.png" alt="">
         </div>
         <div class="top-selection">
-            <a href="/tours/travelType/air"><h3>By Air</h3></a>
+            <a href="/tours?travelType=air"><h3>By Air</h3></a>
             <img src="/img/nationalpark.png" alt="">
         </div>
     </div>
     <div class="bottom-preference">
         <div class="bottom-selection">
-            <a href="/tours/"><h3>Castle Tours</h3></a>
+            <a href="/tours?travelType=castle"><h3>Castle Tours</h3></a>
             <img src="/img/castle.png" alt="">
         </div>
         <a href="/tours"><button>View All Travel Types</button></a>
