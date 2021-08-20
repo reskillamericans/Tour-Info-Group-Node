@@ -11,12 +11,12 @@
 <body>
 <header class="header">
     <div class="menu">
-        <a href="#"><img src="/img/Group 186.png" alt="Touryst Logo"></a>
+        <a href="/"><img src="/img/Group 186.png" alt="Touryst Logo"></a>
         <ul class="right">
-            <li><a href="/index.html">Home</a></li>
+            <li><a href="/">Home</a></li>
             <li><a href="#">About Us</a></li>
             <li><a href="#">Contact</a></li>
-            <li class="signin"><a href="#"><i class="far fa-user-circle"></i>Sign In</a></li>
+            <li class="signin"><a href="/auth/login"><i class="far fa-user-circle"></i>Sign In</a></li>
             <li><a href="#" class="purpbg">Join Now</a></li>
         </ul>
     </div>
@@ -59,7 +59,7 @@
 
         <div class="starcontainer"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
 
-        <div class="testtxt"><p>"Enjoyed this amazing time to relax and enjoy the beautiful view of Big Bear lake. I would recommend this tour if you don't know the area too well."</p></div>
+        <div class="testtxt"><p>"Enjoyed this amazing time to relax and enjoy the beautiful view of <%= tour.title %>. I would recommend this tour if you don't know the area too well."</p></div>
     </div>
 
     <div class="test">

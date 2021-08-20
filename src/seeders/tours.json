@@ -278,5 +278,19 @@
     "duration": "5",
     "price": "500",
     "date": "08/24/2021"
+  },
+  {
+    "title": "Medieval Times",
+    "descriptions": "Cool old castle!!!",
+    "images": ["String", "String", "String"],
+    "featureImage": "String",
+    "notes":"It can get cold in a big old spacious castle",
+    "city": "Hamburg",
+    "country": "Germany",
+    "category": "group",
+    "travelType": "castle",
+    "duration": "3",
+    "price": "230",
+    "date": "08/24/2021"
   }
 ]

@@ -11,8 +11,12 @@ exports.fetchTours = (req, res) => {
     conditions.city = req.query.city;
   } else if (req.query.country) {
     conditions.country = req.query.country;
-  } else if (req.params.travelType) {
-  	conditions.travelType = req.params.travelType;
+  } else if (req.query.travelType) {
+  	conditions.travelType = req.query.travelType;
+	} else if (req.query.category) {
+  	conditions.category = req.query.category;
+	} else if (req.query.date) {
+  	conditions.startDate = req.query.date
 	}
   Tour.find(conditions).limit(12).exec( (err, tours) => {
     if (err) {
