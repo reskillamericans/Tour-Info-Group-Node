@@ -67,6 +67,7 @@ app.use(
     console.log(req.user);
     res.locals.currentUser = req.user;
     res.locals.emailsent = req.flash ('emailsent')
+    res.locals.subscribed = req.flash ('subscribed')
     next();
   });
 
@@ -77,57 +78,57 @@ app.use(
   passport.deserializeUser(User.deserializeUser());
   passport.use("local", new LocalStrategy(User.authenticate()));
   
- // // //////////
-  app.get('/contactus', (req, res) => {
-  res.render('contact', { message: req.flash('info')});
-    // req.flash('message', 'This is a message from the "/" endpoint');
-    // res.redirect('/contact');
+  
+  
+  //==================================================
+  // ROUTES
+  //==================================================
+  app.use(index);
+  app.use(locationRoutes);
+  app.use(loginPageRoutes);
+  app.use(authRoutes);
+  app.use(passRoutes);
+  app.use(userRoutes);
+  app.use(newsletterRoutes);
+  app.use(contactRoutes);
+  app.use(tourRoutes);
+  app.use(aboutRoutes);
+  app.use(contactPageRoutes);
+  // app.use(renderEmailConfirmation);
+  app.use(registrationPageRoutes);
+  
+  //==================================================
+  // SEEDERS
+  //==================================================
+  const { seedCities } = require("./seeders/citySeeder");
+  const { seedCountries } = require("./seeders/countrySeeder");
+  const { seedTours } = require("./seeders/tourSeeder");
+  // const { renderEmailConfirmation } = require("./controllers/emailConfirmationController");
+  
+  // seedCities();
+  // seedCountries();
+  // seedTours();
+  
+  //==================================================
+  // SERVER
+  //==================================================
+  app.listen(port, () => {
+    console.log(`Server is listening on port: ${port}`);
   });
-  app.get('/about', (req, res) => {
-    req.flash('info', 'test');
-    res.redirect('/contactus')
-    
-    });
-    
-    app.get('/contact', (req, res) => {
-      res.send(req.flash('message'));
-    });
+  
+  
+  // // //////////
+   // app.get('/contactus', (req, res) => {
+   // res.render('contact', { message: req.flash('info')});
 
-    
-//==================================================
-// ROUTES
-//==================================================
-app.use(index);
-app.use(locationRoutes);
-app.use(loginPageRoutes);
-app.use(authRoutes);
-app.use(passRoutes);
-app.use(userRoutes);
-app.use(newsletterRoutes);
-app.use(contactRoutes);
-app.use(tourRoutes);
-app.use(aboutRoutes);
-app.use(contactPageRoutes);
-// app.use(renderEmailConfirmation);
-app.use(registrationPageRoutes);
-
-//==================================================
-// SEEDERS
-//==================================================
-const { seedCities } = require("./seeders/citySeeder");
-const { seedCountries } = require("./seeders/countrySeeder");
-const { seedTours } = require("./seeders/tourSeeder");
-// const { renderEmailConfirmation } = require("./controllers/emailConfirmationController");
-
-// seedCities();
-// seedCountries();
-// seedTours();
-
-//==================================================
-// SERVER
-//==================================================
-app.listen(port, () => {
-  console.log(`Server is listening on port: ${port}`);
-});
-
-
+   // });
+   // app.get('/about', (req, res) => {
+   //   req.flash('info', 'test');
+   //   res.redirect('/contactus')
+     
+   //   });
+     
+   //   app.get('/contact', (req, res) => {
+   //     res.send(req.flash('message'));
+   //   });
+  
