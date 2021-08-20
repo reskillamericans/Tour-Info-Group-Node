@@ -105,9 +105,9 @@ app.use(
   const { seedTours } = require("./seeders/tourSeeder");
   // const { renderEmailConfirmation } = require("./controllers/emailConfirmationController");
 
-  seedCities();
-  seedCountries();
-  seedTours();
+  // seedCities();
+  // seedCountries();
+  // seedTours();
 
   //==================================================
   // SERVER
