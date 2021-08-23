@@ -5,18 +5,35 @@ const { sendMail } = require("../services/emailService");
 
 // fetches all tours
 exports.fetchTours = (req, res) => {
-  // searches for tours by city or country or travel type
+  // creates conditions for req queries
   let conditions = {};
   if (req.query.city) {
     conditions.city = req.query.city;
-  } else if (req.query.country) {
+  }
+  if (req.query.country) {
     conditions.country = req.query.country;
-  } else if (req.query.travelType) {
+  }
+  if (req.query.travelType) {
   	conditions.travelType = req.query.travelType;
-	} else if (req.query.category) {
+	}
+  if (req.query.category) {
   	conditions.category = req.query.category;
-	} else if (req.query.date) {
-  	conditions.startDate = req.query.date
+	}
+  if (req.query.startDate) {
+  	conditions.date = {$gte: req.query.startDate};
+	}
+  if (req.query.endDate) {
+		if (conditions.date) {
+			conditions.date.$lte = req.query.endDate;
+		} else {
+			conditions.date = {$lte: req.query.endDate};
+		}
+	}
+  if (req.query.destination) {
+  	conditions.$or = [{city: new RegExp(req.query.destination, 'i') }, {country: new RegExp(req.query.destination, 'i')}];
+	}
+	if (req.query.numOfTravelers) {
+		conditions.numOfTravelers = req.query.numOfTravelers;
 	}
   Tour.find(conditions).limit(12).exec( (err, tours) => {
     if (err) {

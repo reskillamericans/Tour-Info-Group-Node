@@ -24,11 +24,23 @@
 
 <section class="heroimg">
     <h1>Your Adventure Awaits!</h1>
-    <div class="seachcontainer">
-        <div class="searchinputs">
-            <input type="text" id="destination" name="destination" placeholder="Destination"><input type="date" value="Check In"><input type="date" value="Check Out"><input type="number" id="number" name="number" placeholder="Number of Travelers"><a href="/tours"><button type="submit" value="Submit">Search</button></a>
+    <form action="/tours">
+        <div class="seachcontainer">
+            <div class="searchinputs">
+                <input type="text" id="destination" name="destination" placeholder="Destination">
+                <input type="date" name="startDate" value="Check In">
+                <input type="date" name="endDate" value="Check Out">
+<!--                <input type="number" id="number" name="numOfTravelers" placeholder="Number of Travelers">-->
+                <select name="category">
+                    <option value="">Select One</option>
+                    <option value="solo">Solo</option>
+                    <option value="group">Group</option>
+                    <option value="private">Private</option>
+                </select>
+                <a href="/tours"><button type="submit" value="Submit">Search</button></a>
+            </div>
         </div>
-    </div>
+    </form>
 </section>
 
 <section class="tritours">
@@ -114,14 +126,13 @@
 
 <section class="tourtypes">
     <div class="tourtypes-container">
-<!--        TODO: CREATE FUNCTIONALITY FOR H2 AND IMAGES-->
         <div class="tourselection">
             <a href="/tours?category=solo"><h2>Solo Tours</h2></a>
-            <img src="/img/soloT.png" alt=""><p>Meet like-minded travelers, make memories and life-long friends!</p>
+            <img src="/img/soloT.png" alt=""><p>Explore the world on your own!</p>
         </div>
         <div class="tourselection">
             <a href="/tours?category=group"><h2>Group Tours</h2></a>
-            <img src="/img/groupT.png" alt=""><p>Explore the world on your own!</p>
+            <img src="/img/groupT.png" alt=""><p>Meet like-minded travelers, make memories and life-long friends!</p>
         </div>
         <div class="tourselection">
             <a href="/tours?category=private"><h2>Private Tours</h2></a>
