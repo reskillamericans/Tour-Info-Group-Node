@@ -23,13 +23,22 @@
 </header>
 
 <section class="location-top-box">
-    <div class="location-date">
-        <div class="topbox1"><%= tours.query %></div>
-        <div class="topbox2"><%= tours.date %></div>
-        <div class="topbox3"></div>
-        <div class="topbox4"><%= tours.duration %></div>
-        <button class="topsearchbutton">Search</button>
-    </div>
+    <form action="/tours">
+        <div class="location-date">
+            <div class="searchinputs">
+                <input class="topbox1" type="text" id="destination" name="destination" placeholder="Destination">
+                <input class="topbox2" type="date" name="startDate" value="Check In">
+                <input class="topbox3" type="date" name="endDate" value="Check Out">
+                <select class="topbox4" name="category">
+                    <option value="">Select One</option>
+                    <option value="solo">Solo</option>
+                    <option value="group">Group</option>
+                    <option value="private">Private</option>
+                </select>
+                <a href="/tours"><button type="submit" value="Submit">Search</button></a>
+            </div>
+        </div>
+    </form>
 </section>
 
 <section class="sort-by-section">
@@ -70,8 +79,8 @@
     <div class="footerleft">
         <ul class="footerlinks">
             <li><a href="/">Home</a></li>
-            <li><a href="#">About Us</a></li>
-            <li><a href="#">Contact Us</a></li>
+            <li><a href="/about">About Us</a></li>
+            <li><a href="/contactus">Contact Us</a></li>
         </ul>
 
         <ul class="socialmediaicons">
