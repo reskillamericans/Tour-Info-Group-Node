@@ -61,7 +61,7 @@ app.use(
     },
   })
 );
-app.use(flash()); ////added flash here - DOUBLE CHECK
+app.use(flash());
 app.use(function (req, res, next) {
   res.locals.currentUser = req.user;
   res.locals.emailsent = req.flash("emailsent");
