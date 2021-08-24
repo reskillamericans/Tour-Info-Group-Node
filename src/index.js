@@ -13,6 +13,7 @@ const contactRoutes = require("./routes/contactRoutes");
 const tourRoutes = require("./routes/tourRoutes");
 const aboutRoutes = require("./routes/aboutRoutes");
 const contactPageRoutes = require("./routes/contactPageRoutes");
+const successfulBookingRoutes = require('./routes/successfulBookingRoutes');
 
 const registrationPageRoutes = require("./routes/registrationPageRoutes");
 const app = express();
@@ -91,6 +92,7 @@ app.use(tourRoutes);
 app.use(aboutRoutes);
 app.use(contactPageRoutes);
 app.use(registrationPageRoutes);
+app.use(successfulBookingRoutes);
 
 //==================================================
 // SEEDERS

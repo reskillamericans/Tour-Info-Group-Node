@@ -1,3 +1,3 @@
-exports.getIndex = (req, res) => {
-  res.status(200).render('/booking');
+exports.getSuccessfulBookingPage = (req, res) => {
+  res.status(200).render('successfulBooking');
 };
