@@ -16,9 +16,9 @@ router.post('/auth/register', [
 
 // POST request to '/login' to to validate email and password inputs during registration and login to then register user
 router.post('/auth/login', [
-	check('email').isEmail().withMessage('Enter a valid email address'),
+	check('username').not().isEmpty(),
 	check('password').not().isEmpty(),
-], validate, Auth.login);
+], validate, Auth.login, Form.getLoginPage);
 
 // GET request to '/verify/:token' to verify email
 router.get('/auth/verify/:token', Auth.verify);

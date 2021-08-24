@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <style type="text/css">@import url(style.css);</style>
+    <style type="text/css">@import url(/css/style.css);</style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Touryst</title>
-    <link rel="shortcut icon" type="image/jpg" href=""/>
+    <link rel="shortcut icon" type="/image/jpg" href=""/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body>
 <div class="container">
     <div class="menu">
-        <a href="/"><img src="placeholderlogo.jpg" alt="Touryst Logo"></a>
+<!--        TODO: MAKE LINKS FUNCTIONAL-->
+        <a href="/"><img src="/img/Group 186.png" alt="Touryst Logo"></a>
         <ul class="right">
             <li><a href="./contactus.html"><i class="fas fa-search"></i>Search</a></li>
             <li><a href="/about">About Us <i class="fas fa-chevron-down"></i></a></li>
@@ -22,7 +23,7 @@
 
 <div class="boop"><h3>Login To Your Account</h3></div>
 <div class="form-container">
-    <form>
+    <form action="/auth/login" method="post">
         <fieldset>
             <input type="text" id="username" name="username" value="Username"><br>
             <input type="text" id="password" name="password" value="Password"><br><br>

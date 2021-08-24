@@ -92,7 +92,6 @@ app.use(tourRoutes);
 app.use(aboutRoutes);
 app.use(contactPageRoutes);
 app.use(registrationPageRoutes);
-app.use(successfulBookingRoutes);
 
 //==================================================
 // SEEDERS
