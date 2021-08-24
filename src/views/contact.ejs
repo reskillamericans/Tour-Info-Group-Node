@@ -5,6 +5,7 @@
     <title>Contact Us</title>
     <link rel="shortcut icon" type="image/jpg" href="" />
     <link rel="stylesheet" href="/css/contact.css">
+    <link rel="stylesheet" href="/css/flashStyles.css">
     <!-- <link rel="stylesheet" href="/headerfooter.css"> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
@@ -22,8 +23,10 @@
           </ul>
       </div>
   </header>
-<%if(emailsent){%>
-  <p><%=emailsent%></p>
+<%if(emailsent.length){%>
+  <div class="flash-container">
+    <div class="flash-message"><%=emailsent%></div>
+  </div>
 <%}%>
 
     <hr>

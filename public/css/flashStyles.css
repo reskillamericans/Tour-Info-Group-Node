@@ -1,0 +1,43 @@
+.flash-container {
+  animation: flashy-moves 10s;
+  position: absolute;
+  top: -200px;
+  width: 100%;
+  opacity: 0.95;
+}
+
+.flash-message {
+  width: 100%;
+  font-size: 1.5em;
+  color: #fff;
+  padding: 30px;
+  background: linear-gradient(to bottom right, #7307c8, #09ccc0) 0% 0% / 200% 200%;
+  animation: background 4s ease 0s infinite normal none running;
+}
+
+@keyframes background {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes flashy-moves {
+  0% {
+    top: -200px;
+  }
+  20% {
+    top: 0;
+  }
+  80% {
+    top: 0;
+  }
+  100% {
+    top: -200px;
+  }
+}

@@ -1,7 +1,7 @@
 require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
-const flash = require("connect-flash"); //added flash here - DOUBLE CHECK
+const flash = require("connect-flash");
 const index = require("./routes/index");
 const locationRoutes = require("./routes/locationRoutes");
 const loginPageRoutes = require("./routes/loginPageRoute");
@@ -35,7 +35,6 @@ app.get(passRoutes, (req, res) => {
   res.render("reset");
 });
 
-
 //==================================================
 // DATABASE
 //==================================================
@@ -61,73 +60,52 @@ app.use(
       maxAge: 30 * 80000 * 1000,
     },
   })
-  );
-  app.use(flash());             ////added flash here - DOUBLE CHECK
-  app.use(function (req, res, next) {
-    console.log(req.user);
-    res.locals.currentUser = req.user;
-    res.locals.emailsent = req.flash ('emailsent')
-    res.locals.subscribed = req.flash ('subscribed')
-    next();
-  });
+);
+app.use(flash()); ////added flash here - DOUBLE CHECK
+app.use(function (req, res, next) {
+  res.locals.currentUser = req.user;
+  res.locals.emailsent = req.flash("emailsent");
+  res.locals.subscribed = req.flash("subscribed");
+  next();
+});
 
-  app.use(passport.initialize());
-  app.use(passport.session());
-  passport.use(User.createStrategy());
-  passport.serializeUser(User.serializeUser());
-  passport.deserializeUser(User.deserializeUser());
-  passport.use("local", new LocalStrategy(User.authenticate()));
+app.use(passport.initialize());
+app.use(passport.session());
+passport.use(User.createStrategy());
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+passport.use("local", new LocalStrategy(User.authenticate()));
 
+//==================================================
+// ROUTES
+//==================================================
+app.use(index);
+app.use(locationRoutes);
+app.use(loginPageRoutes);
+app.use(authRoutes);
+app.use(passRoutes);
+app.use(userRoutes);
+app.use(newsletterRoutes);
+app.use(contactRoutes);
+app.use(tourRoutes);
+app.use(aboutRoutes);
+app.use(contactPageRoutes);
+app.use(registrationPageRoutes);
 
+//==================================================
+// SEEDERS
+//==================================================
+const { seedCities } = require("./seeders/citySeeder");
+const { seedCountries } = require("./seeders/countrySeeder");
+const { seedTours } = require("./seeders/tourSeeder");
 
-  //==================================================
-  // ROUTES
-  //==================================================
-  app.use(index);
-  app.use(locationRoutes);
-  app.use(loginPageRoutes);
-  app.use(authRoutes);
-  app.use(passRoutes);
-  app.use(userRoutes);
-  app.use(newsletterRoutes);
-  app.use(contactRoutes);
-  app.use(tourRoutes);
-  app.use(aboutRoutes);
-  app.use(contactPageRoutes);
-  // app.use(renderEmailConfirmation);
-  app.use(registrationPageRoutes);
+// seedCities();
+// seedCountries();
+// seedTours();
 
-  //==================================================
-  // SEEDERS
-  //==================================================
-  const { seedCities } = require("./seeders/citySeeder");
-  const { seedCountries } = require("./seeders/countrySeeder");
-  const { seedTours } = require("./seeders/tourSeeder");
-  // const { renderEmailConfirmation } = require("./controllers/emailConfirmationController");
-
-  // seedCities();
-  // seedCountries();
-  // seedTours();
-
-  //==================================================
-  // SERVER
-  //==================================================
-  app.listen(port, () => {
-    console.log(`Server is listening on port: ${port}`);
-  });
-
-
-  // // //////////
-   // app.get('/contactus', (req, res) => {
-   // res.render('contact', { message: req.flash('info')});
-
-   // });
-   // app.get('/about', (req, res) => {
-   //   req.flash('info', 'test');
-   //   res.redirect('/contactus')
-
-   //   });
-
-   //   app.get('/contact', (req, res) => {
-   //     res.send(req.flash('message'));
-   //   });
+//==================================================
+// SERVER
+//==================================================
+app.listen(port, () => {
+  console.log(`Server is listening on port: ${port}`);
+});
