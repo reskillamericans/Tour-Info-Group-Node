@@ -29,6 +29,13 @@ exports.register = async (req, res) => {
   }
 };
 
+// @route GET api/auth/login
+// @desc Render login form
+// @access Public
+exports.getLoginPage = (req, res) => {
+  res.status(200).render('login');
+}
+
 // @route POST api/auth/login
 // @desc Login user and return JWT token
 // @access Public
