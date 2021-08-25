@@ -58,7 +58,8 @@ exports.login = async (req, res) => {
 
       req.login(foundUser, (error) => {
         if (error) return res.status(500).json({ message: error.message });
-        return res.render('index');
+        console.log("user logged in");
+        return res.render('successfulBooking');
       });
     });
 
