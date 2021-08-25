@@ -13,8 +13,6 @@ const contactRoutes = require("./routes/contactRoutes");
 const tourRoutes = require("./routes/tourRoutes");
 const aboutRoutes = require("./routes/aboutRoutes");
 const contactPageRoutes = require("./routes/contactPageRoutes");
-const successfulBookingRoutes = require('./routes/successfulBookingRoutes');
-
 const registrationPageRoutes = require("./routes/registrationPageRoutes");
 const app = express();
 const port = process.env.PORT || 3000;
