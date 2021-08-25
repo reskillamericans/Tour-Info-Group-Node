@@ -34,14 +34,14 @@ exports.register = async (req, res) => {
 // @access Public
 exports.login = async (req, res) => {
   try {
-    const { email, password } = req.body;
-    const user = await User.findOne({ email });
+    const { username, password } = req.body;
+    const user = await User.findOne({ username });
     if (!user)
       return res.status(401).json({
         msg:
-          "The email address " +
+          "The username address " +
           email +
-          " is not associated with any account. Double-check your email address and try again.",
+          " is not associated with any account. Double-check your username and try again.",
       });
 
     //validate password
@@ -58,7 +58,7 @@ exports.login = async (req, res) => {
 
       req.login(foundUser, (error) => {
         if (error) return res.status(500).json({ message: error.message });
-        return res.status(200).json({ user: req.user });
+        return res.render('index');
       });
     });
 
