@@ -46,6 +46,7 @@ exports.login = async (req, res) => {
       path: "bookedTours",
       populate: {path: "tour"}
     });
+    // console.log(user)
     if (!user)
       return res.status(401).json({
         msg:
@@ -57,6 +58,7 @@ exports.login = async (req, res) => {
     //validate password
     // if (!user.comparePassword(password)) return res.status(401).json({ message: "Invalid email or password" });
     user.authenticate(password, (error, foundUser, passwordError) => {
+      console.log(user.bookedTours[0].tour.title);
       if (error) res.status(500).json({ message: error.message });
 
       if (passwordError) return res.status(401).json({ message: "Invalid email or password" });
@@ -68,9 +70,9 @@ exports.login = async (req, res) => {
 
       req.login(foundUser, (error) => {
         if (error) return res.status(500).json({ message: error.message });
-        console.log("user logged in");
-        console.log(foundUser + " BAHUMBUG!!!!");
-        return res.render('successfulBooking', { currentUser: foundUser });
+        // console.log("user logged in");
+        // console.log(foundUser + " BAHUMBUG!!!!");
+        return res.render('successfulBooking', { currentUser: user });
       });
     });
 

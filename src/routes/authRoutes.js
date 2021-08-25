@@ -13,6 +13,7 @@ router.post('/auth/register', [
 	check('lastName').not().isEmpty().withMessage('Your last name is required')
 ], validate, Auth.register);
 
+// GET request to '/auth/login' to render login page
 router.get('/auth/login', Auth.getLoginPage);
 
 // POST request to '/login' to to validate email and password inputs during registration and login to then register user

@@ -87,7 +87,7 @@ exports.bookTour = async (req, res) => {
 			let html = `<p>Hi ${loggedInUser.username}<p><br><p>Your tour to ${tour.title} is confirmed.</p>
 		<br><p>If you did not request this, please ignore this email.</p>`;
 
-			await sendMail({to, subject, html});
+			// await sendMail({to, subject, html});
 			return res.status(200).render('successfulBooking', {currentUser: loggedInUser});
 		}
 	} catch (err) {

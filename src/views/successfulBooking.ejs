@@ -42,7 +42,7 @@
         <h3>Dear <%= currentUser.username %>,</h3>
         <br>
         <p>Thank you for choosing to tour with Touryst. We look forward to welcome you on <strong><%= currentUser.date %></strong> for
-            <strong><%= currentUser.bookedTours[currentUser.bookedTours.length - 1] %>.</strong> <br>
+            <strong><%= currentUser.bookedTours[currentUser.bookedTours.length - 1].tour.title %>.</strong> <br>
             We are committed to ensuring that you have an enjoyable experience. <br>
             <br>
             An email has been sent to <strong><%= currentUser.email %></strong> with your tour information. <br>
