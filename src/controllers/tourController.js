@@ -88,7 +88,7 @@ exports.bookTour = async (req, res) => {
 		<br><p>If you did not request this, please ignore this email.</p>`;
 
 			await sendMail({to, subject, html});
-			return res.status(200).render('successfulBooking');
+			return res.status(200).render('successfulBooking', {currentUser: loggedInUser});
 		}
 	} catch (err) {
 		res.status(500).json({message: err.message});

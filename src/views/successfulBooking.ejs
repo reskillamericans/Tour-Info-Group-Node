@@ -15,7 +15,7 @@
 <body>
 <header class="header">
     <div class="menu">
-        <a href="index.html"><img src="/img/Group 186.png" alt="Touryst Logo"></a>
+        <a href="/"><img src="/img/Group 186.png" alt="Touryst Logo"></a>
         <ul class="right">
             <li><a href="/">Home</a></li>
             <li><a href="/about">About</a></li>
@@ -39,13 +39,13 @@
 
 <section class="mid-container">
     <div class="email">
-        <h3>Dear Karen,</h3>
+        <h3>Dear <%= currentUser.username %>,</h3>
         <br>
-        <p>Thank you for choosing to tour with Touryst. We look forward to welcome you on <strong>Copernicus</strong> for
-            <strong>Big Bear Lake Solo Tour.</strong> <br>
+        <p>Thank you for choosing to tour with Touryst. We look forward to welcome you on <strong><%= currentUser.date %></strong> for
+            <strong><%= currentUser.bookedTours[currentUser.bookedTours.length - 1] %>.</strong> <br>
             We are committed to ensuring that you have an enjoyable experience. <br>
             <br>
-            An email has been sent to <strong>karenlogan122@gmail.com</strong> with your tour information. <br>
+            An email has been sent to <strong><%= currentUser.email %></strong> with your tour information. <br>
             <br>
             Should you have any concern about your tour, please do not hesitate to <a id="contact" href="#">contact us</a>
             and we will make sure to assist you.
@@ -53,7 +53,7 @@
     </div>
 </section>
 
-<button>Go Home</button>
+<a href="/"><button>Go Home</button></a>
 
 <section class="prefooter">
     <div class="footerleft">

@@ -35,7 +35,10 @@ exports.register = async (req, res) => {
 exports.login = async (req, res) => {
   try {
     const { username, password } = req.body;
-    const user = await User.findOne({ username });
+    const user = await User.findOne({ username }).populate({
+      path: "bookedTours",
+      populate: {path: "tour"}
+    });
     if (!user)
       return res.status(401).json({
         msg:
@@ -59,7 +62,8 @@ exports.login = async (req, res) => {
       req.login(foundUser, (error) => {
         if (error) return res.status(500).json({ message: error.message });
         console.log("user logged in");
-        return res.render('successfulBooking');
+        console.log(foundUser + " BAHUMBUG!!!!");
+        return res.render('successfulBooking', { currentUser: foundUser });
       });
     });
 
