@@ -5,8 +5,6 @@ const validate = require('../middlewares/validate');
 const authenticate = require('../middlewares/authenticate');
 const { check } = require('express-validator');
 
-
-
 // GET request to /tours to fetch all tours
 router.get('/tours', TourCtrl.fetchTours);
 // GET request to /tours/ to fetch travelType

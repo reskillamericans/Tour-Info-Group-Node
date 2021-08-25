@@ -4,7 +4,7 @@ const cors = require("cors");
 const flash = require("connect-flash");
 const index = require("./routes/index");
 const locationRoutes = require("./routes/locationRoutes");
-const loginPageRoutes = require("./routes/loginPageRoute");
+// const loginPageRoutes = require("./routes/loginPageRoute");
 const authRoutes = require("./routes/authRoutes");
 const passRoutes = require("./routes/passwordRoutes");
 const userRoutes = require("./routes/userRoutes");
@@ -80,7 +80,7 @@ passport.use("local", new LocalStrategy(User.authenticate()));
 //==================================================
 app.use(index);
 app.use(locationRoutes);
-app.use(loginPageRoutes);
+// app.use(loginPageRoutes);
 app.use(authRoutes);
 app.use(passRoutes);
 app.use(userRoutes);

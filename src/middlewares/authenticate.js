@@ -1,4 +1,5 @@
 module.exports = (req, res, next) => {
-  if (!req.user) return res.render('login');
+  redirectUrl = '/auth/login?=redirect?'+ req.originalUrl;
+  if (!req.user) return res.redirect(redirectUrl);
   next();
 };

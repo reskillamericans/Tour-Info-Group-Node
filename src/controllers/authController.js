@@ -49,29 +49,19 @@ exports.login = async (req, res) => {
     // console.log(user)
     if (!user)
       return res.status(401).json({
-        msg:
-          "The username address " +
-          email +
-          " is not associated with any account. Double-check your username and try again.",
+        msg: "The username " + username + " is not associated with any account. Double-check your username and try again.",
       });
-
     //validate password
     // if (!user.comparePassword(password)) return res.status(401).json({ message: "Invalid email or password" });
     user.authenticate(password, (error, foundUser, passwordError) => {
-      console.log(user.bookedTours[0].tour.title);
       if (error) res.status(500).json({ message: error.message });
-
       if (passwordError) return res.status(401).json({ message: "Invalid email or password" });
-
       // Make sure the user has been verified
       // if (!foundUser.isVerified) {
       //   return res.status(401).json({ type: "not-verified", message: "Your account has not been verified." });
       // }
-
       req.login(foundUser, (error) => {
         if (error) return res.status(500).json({ message: error.message });
-        // console.log("user logged in");
-        // console.log(foundUser + " BAHUMBUG!!!!");
         return res.render('successfulBooking', { currentUser: user });
       });
     });
