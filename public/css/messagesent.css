@@ -112,6 +112,7 @@ button {
 /*----------------------------Message sent section --------------------------------*/
 .main {
   margin: 0%;
+  padding: 1.3em;
 }
 
 .box-1 {
@@ -134,12 +135,12 @@ left: 0;
  height: 320px;
  width: 700px;
  position: absolute;
- bottom: 100px;
+ bottom: 40px;
  left: 300px;  
  background-color: var(--white);
  text-align: center;
  border-radius: 1rem;
- 
+ padding:30px;
 }
 
 #purple1 {
