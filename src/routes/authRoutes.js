@@ -1,7 +1,6 @@
 const express = require('express');
 const { check } = require('express-validator');
 const Auth = require('../controllers/authController');
-const Form = require('../controllers/loginPageController');
 const Password = require('../controllers/passwordController');
 const validate = require('../middlewares/validate');
 const router = express.Router();
@@ -14,9 +13,12 @@ router.post('/auth/register', [
 	check('lastName').not().isEmpty().withMessage('Your last name is required')
 ], validate, Auth.register);
 
+// GET request to '/auth/login' to render login page
+router.get('/auth/login', Auth.getLoginPage);
+
 // POST request to '/login' to to validate email and password inputs during registration and login to then register user
 router.post('/auth/login', [
-	check('email').isEmail().withMessage('Enter a valid email address'),
+	check('username').not().isEmpty(),
 	check('password').not().isEmpty(),
 ], validate, Auth.login);
 

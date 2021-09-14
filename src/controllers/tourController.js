@@ -68,15 +68,15 @@ exports.bookTour = async (req, res) => {
 		}
 
 		// Access tour by id and create new booking
-		let tour = await Tour.findById(req.body.tour);
+		let tour = await Tour.findById(req.params.id);
 		if(!tour){
 			console.log('Tour was not found');
 		} else {
 			let newBooking = await Booking.create({
 				user: loggedInUser,
 				tour: tour,
-				category: req.body.category,
-				travelType: req.body.travelType
+				category: tour.category,
+				travelType: tour.travelType
 			});
 			// push new booked tour into users 'bookedTours' array
 			loggedInUser.bookedTours.push(newBooking);
@@ -87,8 +87,8 @@ exports.bookTour = async (req, res) => {
 			let html = `<p>Hi ${loggedInUser.username}<p><br><p>Your tour to ${tour.title} is confirmed.</p>
 		<br><p>If you did not request this, please ignore this email.</p>`;
 
-			await sendMail({to, subject, html});
-			return res.status(200).json({message: 'Confirmation email sent'});
+			// await sendMail({to, subject, html});
+			return res.status(200).render('successfulBooking', {currentUser: loggedInUser});
 		}
 	} catch (err) {
 		res.status(500).json({message: err.message});

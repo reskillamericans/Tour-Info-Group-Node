@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+          integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/css/successfullbooking.css">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Successful Booking</title>
+</head>
+
+<body>
+<header class="header">
+    <div class="menu">
+        <a href="/"><img src="/img/Group 186.png" alt="Touryst Logo"></a>
+        <ul class="right">
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/contactus">Contact</a></li>
+            <li class="signin"><a href="/auth/login"><i class="far fa-user-circle"></i>Sign In</a></li>
+            <li><a href="/register" class="purpbg">Join Now</a></li>
+        </ul>
+    </div>
+</header>
+
+<hr>
+
+
+<section class="upper-container">
+    <div class="confetti">
+        <img src="/img/confetti.png" alt="confettipic">
+        <h3>Congratulations!</h3>
+        <p>You have successfully booked your tour.</p>
+    </div>
+</section>
+
+<section class="mid-container">
+    <div class="email">
+        <h3>Dear <%= currentUser.username %>,</h3>
+        <br>
+        <p>Thank you for choosing to tour with Touryst. We look forward to welcome you on <strong><%= currentUser.date %></strong> for
+            <strong><%= currentUser.bookedTours[currentUser.bookedTours.length - 1].tour.title %>.</strong> <br>
+            We are committed to ensuring that you have an enjoyable experience. <br>
+            <br>
+            An email has been sent to <strong><%= currentUser.email %></strong> with your tour information. <br>
+            <br>
+            Should you have any concern about your tour, please do not hesitate to <a id="contact" href="#">contact us</a>
+            and we will make sure to assist you.
+        </p>
+    </div>
+</section>
+
+<a href="/"><button>Go Home</button></a>
+
+<section class="prefooter">
+    <div class="footerleft">
+        <ul class="footerlinks">
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About Us</a></li>
+            <li><a href="/contactus">Contact Us</a></li>
+        </ul>
+
+        <ul class="socialmediaicons">
+            <li><i class="fab fa-twitter fa-2x"></i></li>
+            <li><i class="fab fa-facebook-f fa-2x"></i></li>
+            <li><i class="fab fa-instagram fa-2x"></i></li>
+        </ul>
+    </div>
+
+    <div class="newsletter">
+        <h1>Be in the know on all travel deals and news</h1>
+        <div class="newslettercontainer">
+            <input type="email" placeholder="Email Address: "><button type="submit">Sign Up</button>
+        </div>
+    </div>
+</section>
+
+
+<footer>
+    <div class="footertxtcontainer">
+        <div class="footertxt">
+            <h2>Experience the Adventure that Awaits you!w</h2></br>
+            <p> &#169; 2021 Toursyt | All Rights Reserved </br>
+                Privacy Policy | Terms & Conditions</p>
+        </div>
+    </div>
+</footer>
+
+</body>
+
+</html>
